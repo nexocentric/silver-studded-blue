@@ -16,7 +16,8 @@
 #-------------------------------------------------------------------------------
 SCRIPT_NAME="BASH Scripting Tools"
 SCRIPT_VERSION="0.01"
-SCRIPT_SELF_TEST=1
+SCRIPT_OPTION_FLAGS="hT"
+SCRIPT_SELF_TEST=0
 
 #-------------------------------------------------------------------------------
 # Script Control Functions
@@ -137,21 +138,21 @@ cleanUp()
 #-------------------------------------------------------------------------------
 # Script Options Parsing
 #-------------------------------------------------------------------------------
-#while getopts ":h:T:" scriptOption; do
-#	case "${scriptOption}" in
+while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
+	case "${scriptOption}" in
 		# turn on self testing
-#		T)
-#			SCRIPT_SELF_TEST=1
-#			break
-#		;;
-#		# display the script usage menu on help or invalid argments
-#		h | *)
-#			displayScriptUsage
-#			cleanUp 1
-#			exit 0
-#		;;
-#	esac
-#done
+		T )
+			SCRIPT_SELF_TEST=1
+			break
+		;;
+		# display the script usage menu on help or invalid argments
+		h )
+			displayScriptUsage
+			cleanUp 1
+			exit
+		;;
+	esac
+done
 
 #-------------------------------------------------------------------------------
 # Script Functions
