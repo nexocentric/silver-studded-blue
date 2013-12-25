@@ -7,7 +7,7 @@
 #     See copyright at footer for more information.
 # [summary]
 # This is just a set of tools that I developed and tested to make it easier
-# for me to create BASH scripts. If you feel that they would be useful to you
+# for me to create BASH scripts. If you feel that they would be useful for you
 # please feel free to use them.
 #///////////////////////////////////////////////////////////////////////////////
 
@@ -16,7 +16,8 @@
 #-------------------------------------------------------------------------------
 SCRIPT_NAME="BASH Scripting Tools"
 SCRIPT_VERSION="0.01"
-SCRIPT_OPTION_FLAGS="hT"
+SCRIPT_VERSION_NAME="azuki"
+SCRIPT_OPTION_FLAGS="hTv"
 SCRIPT_SELF_TEST=0
 
 #-------------------------------------------------------------------------------
@@ -146,7 +147,11 @@ while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
 			break
 		;;
 		# display the script usage menu on help or invalid argments
-		h )
+		h | v )
+			displayScriptHeader
+			if [[ "${scriptOption}" = "v" ]]; then
+				exit
+			fi
 			displayScriptUsage
 			cleanUp 1
 			exit
@@ -158,7 +163,7 @@ done
 # Script Functions
 #-------------------------------------------------------------------------------
 
-sanitize()
+replaceCharacters()
 {
 	local sanitizedString=
 	
@@ -174,8 +179,8 @@ dynamicVariable()
 	local variableValue=
 
 	#clean variable name and variable
-	variableName=
-	variableValue=
+	variableName=$(replaceCharacters $variableName )
+	variableValue=$(replaceCharacters $variableName )
 	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
 		case "${functionOption}" in
 			# turn on self testing
