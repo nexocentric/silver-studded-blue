@@ -17,7 +17,6 @@
 SCRIPT_NAME="BASH Scripting Tools"
 SCRIPT_VERSION="0.01"
 SCRIPT_SELF_TEST=1
-RUN_TESTS=1
 
 #-------------------------------------------------------------------------------
 # Script Control Functions
