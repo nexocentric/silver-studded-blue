@@ -158,8 +158,50 @@ done
 # Script Functions
 #-------------------------------------------------------------------------------
 
+sanitize()
+{
+	local sanitizedString=
+	
+	printf "%s" "${sanitizedString}"
+}
+
 dynamicVariable()
 {
+	local OPTIND
+	local FUNCTION_OPTION_FLAGS="a"
+	local declareArray=
+	local variableName=
+	local variableValue=
+
+	#clean variable name and variable
+	variableName=
+	variableValue=
+	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
+		case "${functionOption}" in
+			# turn on self testing
+			a )
+				SCRIPT_SELF_TEST=1
+				break
+			;;
+			# display the script usage menu on help or invalid argments
+			h )
+				displayScriptUsage
+				cleanUp 1
+				exit
+			;;
+		esac
+	done	
+	
+	if [[ -n $declareArray ]]; then
+		
+	fi
+	
+	if [[]]; then
+		declare $declareArray "${variableName}"="${variableValue}"
+	else
+	
+	fi
+	
 	return 0
 }
 
