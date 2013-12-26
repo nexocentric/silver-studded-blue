@@ -166,11 +166,14 @@ done
 replaceCharacters()
 {
 	local OPTIND
-	local FUNCTION_OPTION_FLAGS="ct1"
+	local FUNCTION_OPTION_FLAGS="chtv1"
+	local TAIL_REPLACE=
+	local WHOLE_WORD_REPLACE=
+	local FIRST_INSTANCE_REPLACE=
 	local functionOption=
-	local originalString=$1
-	local searchString=$2
-	local replacementString
+	local originalString=
+	local searchString=
+	local replacementString=
 
 	#probably need getopts as you need to decide
 	#if you want whole string replacement or something else
@@ -187,10 +190,7 @@ replaceCharacters()
 	#-t from tail
 	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
 		case "${functionOption}" in
-			# turn on self testing
-			a )
-				SCRIPT_SELF_TEST=1
-				break
+			c )
 			;;
 			# display the script usage menu on help or invalid argments
 			h )
@@ -198,8 +198,18 @@ replaceCharacters()
 				cleanUp 1
 				exit
 			;;
+			t )
+			;;
+			v )
+			;;
+			1 )
+			;;
 		esac
-	done	
+	done
+
+	if [[   ]]; then
+	else
+	fi
 
 	printf "%s" "${originalString//[$]}"
 }
