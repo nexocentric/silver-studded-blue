@@ -165,15 +165,50 @@ done
 
 replaceCharacters()
 {
-	local sanitizedString=
-	
-	printf "%s" "${sanitizedString}"
+	local OPTIND
+	local FUNCTION_OPTION_FLAGS="ct1"
+	local functionOption=
+	local originalString=$1
+	local searchString=$2
+	local replacementString
+
+	#probably need getopts as you need to decide
+	#if you want whole string replacement or something else
+	#replacement of letters in string
+	#replacement of whole words in string
+	#-c for characters
+	#else whole word
+	#if replacement characters is a list
+	#will replace the characters one by one changing
+	#on different iterations
+	#-1 for first repetition whole word is one word
+	#otherwise character is one loop through????? possible??? maybe not possible for
+	#characters
+	#-t from tail
+	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
+		case "${functionOption}" in
+			# turn on self testing
+			a )
+				SCRIPT_SELF_TEST=1
+				break
+			;;
+			# display the script usage menu on help or invalid argments
+			h )
+				displayScriptUsage
+				cleanUp 1
+				exit
+			;;
+		esac
+	done	
+
+	printf "%s" "${originalString//[$]}"
 }
 
 dynamicVariable()
 {
 	local OPTIND
-	local FUNCTION_OPTION_FLAGS="a"
+	local FUNCTION_OPTION_FLAGS="ah"
+	local functionOption=
 	local declareArray=
 	local variableName=
 	local variableValue=
