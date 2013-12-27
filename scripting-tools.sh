@@ -163,17 +163,25 @@ done
 # Script Functions
 #-------------------------------------------------------------------------------
 
-replaceCharacters()
+replaceString()
 {
+	#getopts settings
 	local OPTIND
 	local FUNCTION_OPTION_FLAGS="chtv1"
-	local TAIL_REPLACE=
-	local WHOLE_WORD_REPLACE=
-	local FIRST_INSTANCE_REPLACE=
+	local FUNCTION_USAGE=""
+
+	#evaluation for the next three defines will be based on
+	#whether the string is empty or not
+	local TAIL_REPLACE=0
+	local WHOLE_WORD_REPLACE="YES" #default is on
+	local FIRST_INSTANCE_REPLACE="/"
+	local REPLACEMENT_DIRECTION="#%" #front/tail
 	local functionOption=
 	local originalString=
 	local searchString=
-	local replacementString=
+	local replacementString= #will delete characters/words by default
+	local processingString=
+	local newString=
 
 	#probably need getopts as you need to decide
 	#if you want whole string replacement or something else
@@ -190,27 +198,52 @@ replaceCharacters()
 	#-t from tail
 	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
 		case "${functionOption}" in
+			#replace by character and not by whole word
 			c )
+				WHOLE_WORD_REPLACE=
 			;;
 			# display the script usage menu on help or invalid argments
-			h )
-				displayScriptUsage
-				cleanUp 1
-				exit
+			h | \? )
+				printf "%\n" "${FUNCTION_USAGE}"
+				return
 			;;
+			#start replacement from tail
 			t )
+				TAIL_REPLACE=1
 			;;
+			#display verbose information
 			v )
+				printf "%s\n" "BASS, BASS, BASS"
 			;;
+			#replace first instance only
 			1 )
+				FIRST_INSTANCE_REPLACE= #turn off all replacement
+			;;
+			* )
+				#get non option args
+				if [[ -z originalString ]]; then
+					originalString="$OPTARG"
+				elif [[ -z searchString ]]; then
+					searchString="$OPTARG"
+				else
+					replacementString="$OPTARG"
+				fi
 			;;
 		esac
 	done
 
-	if [[   ]]; then
-	else
+	#safety checks
+	if [[ -z originalString ]] || [[ -z replacementString ]]; then
+		return
 	fi
 
+	#replacement loop
+	processingString="/${searchString}/${replacementString}"
+	while [[ -n "${processingString}" ]]; do
+		originalString=${originalString$processingString}		
+		return
+	done
+	
 	printf "%s" "${originalString//[$]}"
 }
 
