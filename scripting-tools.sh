@@ -1,7 +1,7 @@
 #!/bin/bash
-#///////////////////////////////////////////////////////////////////////////////
+#╔═════════════════════════════════════════════════════════════════════════════
 # [work]
-# BASH Scripting Tools
+# Silver-Studded-Blue BASH Scripting Tools
 # [copyright]
 # (c) 2013 Dodzi Y. Dzakuma (http://www.nexocentric.com)
 #     See copyright at footer for more information.
@@ -9,12 +9,16 @@
 # This is just a set of tools that I developed and tested to make it easier
 # for me to create BASH scripts. If you feel that they would be useful for you
 # please feel free to use them.
-#///////////////////////////////////////////////////////////////////////////////
+#╔═════════════════════════════════════════════════════════════════════════════
+
+#╔══════════════════════════════════════════
+
+
 
 #-------------------------------------------------------------------------------
 # Script Settings
 #-------------------------------------------------------------------------------
-SCRIPT_NAME="BASH Scripting Tools"
+SCRIPT_NAME="Silver-Studded-Blue BASH Scripting Tools"
 SCRIPT_VERSION="0.01"
 SCRIPT_VERSION_NAME="azuki"
 SCRIPT_OPTION_FLAGS="hTv"
