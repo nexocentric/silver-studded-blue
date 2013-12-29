@@ -1,22 +1,28 @@
 #!/bin/bash
-#///////////////////////////////////////////////////////////////////////////////
+#╔═════════════════════════════════════════════════════════════════════════════
 # [work]
-# BASH Scripting Tools
+# Silver-Studded-Blue BASH Scripting Tools
 # [copyright]
 # (c) 2013 Dodzi Y. Dzakuma (http://www.nexocentric.com)
 #     See copyright at footer for more information.
 # [summary]
 # This is just a set of tools that I developed and tested to make it easier
-# for me to create BASH scripts. If you feel that they would be useful to you
+# for me to create BASH scripts. If you feel that they would be useful for you
 # please feel free to use them.
-#///////////////////////////////////////////////////////////////////////////////
+#╔═════════════════════════════════════════════════════════════════════════════
+
+#╔══════════════════════════════════════════
+
+
 
 #-------------------------------------------------------------------------------
 # Script Settings
 #-------------------------------------------------------------------------------
-SCRIPT_NAME="BASH Scripting Tools"
+SCRIPT_NAME="Silver-Studded-Blue BASH Scripting Tools"
 SCRIPT_VERSION="0.01"
-SCRIPT_SELF_TEST=1
+SCRIPT_VERSION_NAME="azuki"
+SCRIPT_OPTION_FLAGS="hTv"
+SCRIPT_SELF_TEST=0
 
 #-------------------------------------------------------------------------------
 # Script Control Functions
@@ -137,28 +143,152 @@ cleanUp()
 #-------------------------------------------------------------------------------
 # Script Options Parsing
 #-------------------------------------------------------------------------------
-#while getopts ":h:T:" scriptOption; do
-#	case "${scriptOption}" in
+while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
+	case "${scriptOption}" in
 		# turn on self testing
-#		T)
-#			SCRIPT_SELF_TEST=1
-#			break
-#		;;
-#		# display the script usage menu on help or invalid argments
-#		h | *)
-#			displayScriptUsage
-#			cleanUp 1
-#			exit 0
-#		;;
-#	esac
-#done
+		T )
+			SCRIPT_SELF_TEST=1
+			break
+		;;
+		# display the script usage menu on help or invalid argments
+		h | v )
+			displayScriptHeader
+			if [[ "${scriptOption}" = "v" ]]; then
+				exit
+			fi
+			displayScriptUsage
+			cleanUp 1
+			exit
+		;;
+	esac
+done
 
 #-------------------------------------------------------------------------------
 # Script Functions
 #-------------------------------------------------------------------------------
 
+replaceString()
+{
+	#getopts settings
+	local OPTIND
+	local FUNCTION_OPTION_FLAGS="chtv1"
+	local FUNCTION_USAGE=""
+
+	#evaluation for the next three defines will be based on
+	#whether the string is empty or not
+	local TAIL_REPLACE=0
+	local WHOLE_WORD_REPLACE="YES" #default is on
+	local FIRST_INSTANCE_REPLACE="/"
+	local REPLACEMENT_DIRECTION="#%" #front/tail
+	local functionOption=
+	local originalString=
+	local searchString=
+	local replacementString= #will delete characters/words by default
+	local processingString=
+	local newString=
+
+	#probably need getopts as you need to decide
+	#if you want whole string replacement or something else
+	#replacement of letters in string
+	#replacement of whole words in string
+	#-c for characters
+	#else whole word
+	#if replacement characters is a list
+	#will replace the characters one by one changing
+	#on different iterations
+	#-1 for first repetition whole word is one word
+	#otherwise character is one loop through????? possible??? maybe not possible for
+	#characters
+	#-t from tail
+	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
+		case "${functionOption}" in
+			#replace by character and not by whole word
+			c )
+				WHOLE_WORD_REPLACE=
+			;;
+			# display the script usage menu on help or invalid argments
+			h | \? )
+				printf "%\n" "${FUNCTION_USAGE}"
+				return
+			;;
+			#start replacement from tail
+			t )
+				TAIL_REPLACE=1
+			;;
+			#display verbose information
+			v )
+				printf "%s\n" "BASS, BASS, BASS"
+			;;
+			#replace first instance only
+			1 )
+				FIRST_INSTANCE_REPLACE= #turn off all replacement
+			;;
+			* )
+				#get non option args
+				if [[ -z originalString ]]; then
+					originalString="$OPTARG"
+				elif [[ -z searchString ]]; then
+					searchString="$OPTARG"
+				else
+					replacementString="$OPTARG"
+				fi
+			;;
+		esac
+	done
+
+	#safety checks
+	if [[ -z originalString ]] || [[ -z replacementString ]]; then
+		return
+	fi
+
+	#replacement loop
+	processingString="/${searchString}/${replacementString}"
+	while [[ -n "${processingString}" ]]; do
+		originalString=${originalString$processingString}		
+		return
+	done
+	
+	printf "%s" "${originalString//[$]}"
+}
+
 dynamicVariable()
 {
+	local OPTIND
+	local FUNCTION_OPTION_FLAGS="ah"
+	local functionOption=
+	local declareArray=
+	local variableName=
+	local variableValue=
+
+	#clean variable name and variable
+	variableName=$(replaceCharacters $variableName )
+	variableValue=$(replaceCharacters $variableName )
+	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
+		case "${functionOption}" in
+			# turn on self testing
+			a )
+				SCRIPT_SELF_TEST=1
+				break
+			;;
+			# display the script usage menu on help or invalid argments
+			h )
+				displayScriptUsage
+				cleanUp 1
+				exit
+			;;
+		esac
+	done	
+	
+	if [[ -n $declareArray ]]; then
+		
+	fi
+	
+	if [[]]; then
+		declare $declareArray "${variableName}"="${variableValue}"
+	else
+	
+	fi
+	
 	return 0
 }
 
