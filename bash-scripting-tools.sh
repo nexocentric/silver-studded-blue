@@ -1,5 +1,5 @@
 #!/bin/bash
-#╔═════════════════════════════════════════════════════════════════════════════
+#═══════════════════════════════════════════════════════════════════════════════
 # [work]
 # Silver-Studded-Blue BASH Scripting Tools
 # [copyright]
@@ -9,24 +9,20 @@
 # This is just a set of tools that I developed and tested to make it easier
 # for me to create BASH scripts. If you feel that they would be useful for you
 # please feel free to use them.
-#╔═════════════════════════════════════════════════════════════════════════════
+#═══════════════════════════════════════════════════════════════════════════════
 
-#╔══════════════════════════════════════════
-
-
-
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 # Script Settings
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 SCRIPT_NAME="Silver-Studded-Blue BASH Scripting Tools"
 SCRIPT_VERSION="0.01"
 SCRIPT_VERSION_NAME="azuki"
 SCRIPT_OPTION_FLAGS="hTv"
 SCRIPT_SELF_TEST=0
 
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 # Script Control Functions
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 #===========================================================
 # [author]
 # Dzakuma, Dodzidenu
@@ -140,9 +136,9 @@ cleanUp()
         printf "%s successfully completed operation.\n" "${SCRIPT_NAME}"
 }
 
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 # Script Options Parsing
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
 	case "${scriptOption}" in
 		# turn on self testing
@@ -163,10 +159,17 @@ while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
 	esac
 done
 
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 # Script Functions
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 
+#===========================================================
+# [author]
+# Dzakuma, Dodzidenu
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 replaceString()
 {
 	#getopts settings
@@ -203,26 +206,26 @@ replaceString()
 	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
 		case "${functionOption}" in
 			#replace by character and not by whole word
-			c )
-				WHOLE_WORD_REPLACE=
-			;;
-			# display the script usage menu on help or invalid argments
-			h | \? )
-				printf "%\n" "${FUNCTION_USAGE}"
-				return
-			;;
-			#start replacement from tail
-			t )
-				TAIL_REPLACE=1
-			;;
-			#display verbose information
-			v )
-				printf "%s\n" "BASS, BASS, BASS"
-			;;
-			#replace first instance only
-			1 )
-				FIRST_INSTANCE_REPLACE= #turn off all replacement
-			;;
+			# c )
+			# 	WHOLE_WORD_REPLACE=
+			# ;;
+			# # display the script usage menu on help or invalid argments
+			# h | \? )
+			# 	printf "%\n" "${FUNCTION_USAGE}"
+			# 	return
+			# ;;
+			# #start replacement from tail
+			# t )
+			# 	TAIL_REPLACE=1
+			# ;;
+			# #display verbose information
+			# v )
+			# 	printf "%s\n" "BASS, BASS, BASS"
+			# ;;
+			# #replace first instance only
+			# 1 )
+			# 	FIRST_INSTANCE_REPLACE= #turn off all replacement
+			# ;;
 			* )
 				#get non option args
 				if [[ -z originalString ]]; then
@@ -242,55 +245,55 @@ replaceString()
 	fi
 
 	#replacement loop
-	processingString="/${searchString}/${replacementString}"
-	while [[ -n "${processingString}" ]]; do
-		originalString=${originalString$processingString}		
-		return
-	done
+	# processingString="/${searchString}/${replacementString}"
+	# while [[ -n "${processingString}" ]]; do
+	# 	originalString=${originalString$processingString}		
+	# 	return
+	# done
 	
 	printf "%s" "${originalString//[$]}"
 }
 
-dynamicVariable()
-{
-	local OPTIND
-	local FUNCTION_OPTION_FLAGS="ah"
-	local functionOption=
-	local declareArray=
-	local variableName=
-	local variableValue=
+# dynamicVariable()
+# {
+# 	local OPTIND
+# 	local FUNCTION_OPTION_FLAGS="ah"
+# 	local functionOption=
+# 	local declareArray=
+# 	local variableName=
+# 	local variableValue=
 
-	#clean variable name and variable
-	variableName=$(replaceCharacters $variableName )
-	variableValue=$(replaceCharacters $variableName )
-	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
-		case "${functionOption}" in
-			# turn on self testing
-			a )
-				SCRIPT_SELF_TEST=1
-				break
-			;;
-			# display the script usage menu on help or invalid argments
-			h )
-				displayScriptUsage
-				cleanUp 1
-				exit
-			;;
-		esac
-	done	
+# 	#clean variable name and variable
+# 	variableName=$(replaceCharacters $variableName )
+# 	variableValue=$(replaceCharacters $variableName )
+# 	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
+# 		case "${functionOption}" in
+# 			# turn on self testing
+# 			a )
+# 				SCRIPT_SELF_TEST=1
+# 				break
+# 			;;
+# 			# display the script usage menu on help or invalid argments
+# 			h )
+# 				displayScriptUsage
+# 				cleanUp 1
+# 				exit
+# 			;;
+# 		esac
+# 	done	
 	
-	if [[ -n $declareArray ]]; then
+# 	if [[ -n $declareArray ]]; then
 		
-	fi
+# 	fi
 	
-	if [[]]; then
-		declare $declareArray "${variableName}"="${variableValue}"
-	else
+# 	if [[]]; then
+# 		declare $declareArray "${variableName}"="${variableValue}"
+# 	else
 	
-	fi
+# 	fi
 	
-	return 0
-}
+# 	return 0
+# }
 
 
 TABLE_VARIABLE_STEM="_table_column_"
@@ -319,9 +322,9 @@ displayDynamicTable()
         done
 }
 
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 # Function Test
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 if [[ $SCRIPT_SELF_TEST -eq 1 ]]; then
 
 testRepeatString()
@@ -339,17 +342,35 @@ testRepeatString()
 	assertSame "Failed to duplicate pop lyrics." "Womanizer, Womanizer, Womanizer" "${popLyrics}"
 }
 
+testReplaceString()
+{
+	local originalString="clean up this mess!"
+	local replacedString=""
+
+	#insufficient parameters
+	replacedString=$(replaceString originalString)
+	assertNull "Failed to replace whole word in string." "${replacedString}"
+
+	#full word replacement
+	replacedString=$(replaceString originalString "clean" "beam")
+	assertSame "Failed to replace whole word in string." "beam up this mess!" "${replacedString}"
+
+	#character replacement
+	replacedString=$(replaceString originalString "c")
+	assertSame "Failed to replace whole word in string." "lean up this mess!" "${replacedString}"
+}
+
 #this is an xUnit family testing framework for shell files
 . shunit2-2.0.3/src/shell/shunit2
 
 fi
 
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 # Function Exports
-#-------------------------------------------------------------------------------
+#───────────────────────────────────────────────────────────────────────────────
 export -f repeatString
 
-#///////////////////////////////////////////////////////////////////////////////
+#═══════════════════════════════════════════════════════════════════════════════
 # The MIT License (MIT)
 #
 # Copyright (c) 2013 Dodzi Y. Dzakuma (http://www.nexocentric.com)
@@ -371,4 +392,4 @@ export -f repeatString
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-#///////////////////////////////////////////////////////////////////////////////
+#═══════════════════════════════════════════════════════════════════════════════
