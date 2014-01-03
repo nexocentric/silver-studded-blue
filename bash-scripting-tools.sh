@@ -17,8 +17,9 @@
 SCRIPT_NAME="Silver-Studded-Blue BASH Scripting Tools"
 SCRIPT_VERSION="0.01"
 SCRIPT_VERSION_NAME="azuki"
-SCRIPT_OPTION_FLAGS="hTv"
+SCRIPT_OPTION_FLAGS="DdhTVv"
 SCRIPT_SELF_TEST=0
+SCRIPT_DEBUG=0
 
 #───────────────────────────────────────────────────────────────────────────────
 # Script Control Functions
@@ -67,14 +68,19 @@ displayScriptLicense()
 #===========================================================
 repeatString()
 {
-	local string=$1
-	local maxRepetitions=$2
+	local string=
+	local maxRepetitions=
 	local generatedString=
 
 	#check that string passed
 	if [[ $# -ne 2 ]]; then
 		return
 	fi
+
+	#assign positional parameters
+	string="$1"
+	maxRepetitions=$2
+
 	#check that number passed
 	if [[ ! $2 -gt 0 ]]; then
 		return
@@ -141,13 +147,24 @@ cleanUp()
 #───────────────────────────────────────────────────────────────────────────────
 while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
 	case "${scriptOption}" in
+		#debug
+		D | d )
+			SCRIPT_DEBUG=1
+			break
+		;;
+		h )
+			displayScriptHeader
+			displayScriptUsage
+			cleanUp 1
+			exit
+		;;
 		# turn on self testing
-		T )
+		T | t )
 			SCRIPT_SELF_TEST=1
 			break
 		;;
 		# display the script usage menu on help or invalid argments
-		h | v )
+		V | v )
 			displayScriptHeader
 			if [[ "${scriptOption}" = "v" ]]; then
 				exit
@@ -175,7 +192,7 @@ replaceString()
 	#getopts settings
 	local OPTIND
 	local FUNCTION_OPTION_FLAGS="chtv1"
-	local FUNCTION_USAGE=""
+	local FUNCTION_USAGE="${FUNCNAME}"
 
 	#evaluation for the next three defines will be based on
 	#whether the string is empty or not
@@ -187,7 +204,7 @@ replaceString()
 	local originalString=
 	local searchString=
 	local replacementString= #will delete characters/words by default
-	local processingString=
+	local processedString=
 	local newString=
 
 	#probably need getopts as you need to decide
@@ -209,11 +226,11 @@ replaceString()
 			# c )
 			# 	WHOLE_WORD_REPLACE=
 			# ;;
-			# # display the script usage menu on help or invalid argments
-			# h | \? )
-			# 	printf "%\n" "${FUNCTION_USAGE}"
-			# 	return
-			# ;;
+			# display the script usage menu on help or invalid argments
+			h )
+				printf "%s\n" "${FUNCTION_USAGE}"
+				return
+			;;
 			# #start replacement from tail
 			# t )
 			# 	TAIL_REPLACE=1
@@ -226,32 +243,45 @@ replaceString()
 			# 1 )
 			# 	FIRST_INSTANCE_REPLACE= #turn off all replacement
 			# ;;
-			* )
-				#get non option args
-				if [[ -z originalString ]]; then
-					originalString="$OPTARG"
-				elif [[ -z searchString ]]; then
-					searchString="$OPTARG"
-				else
-					replacementString="$OPTARG"
-				fi
-			;;
+			# * )
+			# 	#get non option args
+			# 	if [[ -z originalString ]]; then
+			# 		originalString="$OPTARG"
+			# 	elif [[ -z searchString ]]; then
+			# 		searchString="$OPTARG"
+			# 	else
+			# 		replacementString="$OPTARG"
+			# 	fi
+			# ;;
 		esac
 	done
 
+	if [[ $# -eq 3 ]]; then
+		replacementString=$3
+	fi
+	
+	if [[ $# -ge 2 ]]; then
+		searchString=$2
+	fi
+	originalString=$1
+
 	#safety checks
-	if [[ -z originalString ]] || [[ -z replacementString ]]; then
+	if [[ -z "${originalString}" ]] || [[ -z "${searchString}" ]]; then
 		return
 	fi
 
 	#replacement loop
 	# processingString="/${searchString}/${replacementString}"
 	# while [[ -n "${processingString}" ]]; do
-	# 	originalString=${originalString$processingString}		
+	# 	originalString=${originalString$processingString}
+	processedString=$( \
+		printf "%s" "${originalString}" | \
+		sed "s/${searchString}/${replacementString}/" \
+	)
 	# 	return
 	# done
 	
-	printf "%s" "${originalString//[$]}"
+	printf "%s" "${processedString}"
 }
 
 # dynamicVariable()
@@ -348,16 +378,16 @@ testReplaceString()
 	local replacedString=""
 
 	#insufficient parameters
-	replacedString=$(replaceString originalString)
-	assertNull "Failed to replace whole word in string." "${replacedString}"
+	replacedString=$(replaceString "${originalString}")
+	assertNull "Failed to return null string." "${replacedString}"
 
 	#full word replacement
-	replacedString=$(replaceString originalString "clean" "beam")
+	replacedString=$(replaceString "${originalString}" "clean" "beam")
 	assertSame "Failed to replace whole word in string." "beam up this mess!" "${replacedString}"
 
 	#character replacement
-	replacedString=$(replaceString originalString "c")
-	assertSame "Failed to replace whole word in string." "lean up this mess!" "${replacedString}"
+	replacedString=$(replaceString "${originalString}" "c")
+	assertSame "Failed to replace character in string." "lean up this mess!" "${replacedString}"
 }
 
 #this is an xUnit family testing framework for shell files
@@ -365,6 +395,13 @@ testReplaceString()
 
 fi
 
+if [[ $SCRIPT_DEBUG -eq 1 ]]; then
+	printf "Start debug scripts.\n"
+
+	debugOutput=$(replaceString "something" "some" "nothing")
+
+	exit 0
+fi
 #───────────────────────────────────────────────────────────────────────────────
 # Function Exports
 #───────────────────────────────────────────────────────────────────────────────
