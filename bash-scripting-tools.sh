@@ -17,7 +17,7 @@
 SCRIPT_NAME="Silver-Studded-Blue BASH Scripting Tools"
 SCRIPT_VERSION="0.01"
 SCRIPT_VERSION_NAME="azuki"
-SCRIPT_OPTION_FLAGS="DdhTVv"
+SCRIPT_OPTION_FLAGS="DdhTtVv"
 SCRIPT_SELF_TEST=0
 SCRIPT_DEBUG=0
 
@@ -174,11 +174,30 @@ while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
 			exit
 		;;
 	esac
+	#remove parsed options from the list
+	shift $((OPTIND-1))
 done
 
 #───────────────────────────────────────────────────────────────────────────────
 # Script Functions
 #───────────────────────────────────────────────────────────────────────────────
+
+stringToArray()
+{
+	printf "%s"	"$(echo $1 | sed 's/\(.\)/\1 /g')"
+}
+
+reverseString()
+{
+	if [[ $# -lt 1 ]]; then
+		return
+	fi
+
+	reversedString="$1"
+	len=${#reversedString}
+	for ((i=1;i<len;i++)); do reversedString=$reversedString${reversedString: -i*2:1}; done; reversedString=${reversedString:len-1}
+	printf "%s" "${reversedString}"
+}
 
 #===========================================================
 # [author]
@@ -196,16 +215,21 @@ replaceString()
 
 	#evaluation for the next three defines will be based on
 	#whether the string is empty or not
-	local TAIL_REPLACE=0
-	local WHOLE_WORD_REPLACE="YES" #default is on
-	local FIRST_INSTANCE_REPLACE="/"
+	local HEAD_REPLACE=1
+	local WHOLE_WORD_REPLACE=1 #default is on
+	local REPLACE_ALL_MATCHING="g"
 	local REPLACEMENT_DIRECTION="#%" #front/tail
+	local SPACE_PLACEHOLDER="█"
 	local functionOption=
 	local originalString=
 	local searchString=
+	local searchCharacters=
 	local replacementString= #will delete characters/words by default
 	local processedString=
 	local newString=
+	local characterList=
+	local character=
+	local processingString=
 
 	#probably need getopts as you need to decide
 	#if you want whole string replacement or something else
@@ -223,26 +247,26 @@ replaceString()
 	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
 		case "${functionOption}" in
 			#replace by character and not by whole word
-			# c )
-			# 	WHOLE_WORD_REPLACE=
-			# ;;
+			c )
+				WHOLE_WORD_REPLACE=
+			;;
 			# display the script usage menu on help or invalid argments
 			h )
 				printf "%s\n" "${FUNCTION_USAGE}"
 				return
 			;;
-			# #start replacement from tail
-			# t )
-			# 	TAIL_REPLACE=1
-			# ;;
+			#start replacement from tail
+			t )
+				HEAD_REPLACE=
+			;;
 			# #display verbose information
 			# v )
 			# 	printf "%s\n" "BASS, BASS, BASS"
 			# ;;
 			# #replace first instance only
-			# 1 )
-			# 	FIRST_INSTANCE_REPLACE= #turn off all replacement
-			# ;;
+			1 )
+				REPLACE_ALL_MATCHING= #turn off all replacement
+			;;
 			# * )
 			# 	#get non option args
 			# 	if [[ -z originalString ]]; then
@@ -254,33 +278,64 @@ replaceString()
 			# 	fi
 			# ;;
 		esac
+		#remove the options that were parsed
+		shift $((OPTIND-1))
 	done
 
 	if [[ $# -eq 3 ]]; then
 		replacementString=$3
+		replacementString=${replacementString// /$SPACE_PLACEHOLDER}
 	fi
 	
 	if [[ $# -ge 2 ]]; then
 		searchString=$2
+		searchString=${searchString// /$SPACE_PLACEHOLDER}
 	fi
 	originalString=$1
+	originalString=${originalString// /$SPACE_PLACEHOLDER}
 
 	#safety checks
 	if [[ -z "${originalString}" ]] || [[ -z "${searchString}" ]]; then
 		return
 	fi
 
+	#reverse string for reverse lookup
+	if [[ -z "${HEAD_REPLACE}" ]]; then
+		originalString=$(reverseString $originalString)
+		searchString=$(reverseString $searchString)
+		if [[ -n "${replacementString}" ]]; then
+			replacementString=$(reverseString $replacementString)
+		fi
+	fi
+
 	#replacement loop
 	# processingString="/${searchString}/${replacementString}"
 	# while [[ -n "${processingString}" ]]; do
 	# 	originalString=${originalString$processingString}
-	processedString=$( \
-		printf "%s" "${originalString}" | \
-		sed "s/${searchString}/${replacementString}/" \
-	)
-	# 	return
-	# done
-	
+	if [[ -z "${WHOLE_WORD_REPLACE}" ]]; then
+		processingString="${originalString}"
+		searchCharacters=$(stringToArray "${searchString}")
+		#printf "{%s}" "$searchCharacters"
+		for character in $searchCharacters; do
+			processingString=$( \
+				printf "%s" "${processingString}" | \
+				sed "s/${character}/${replacementString}/${REPLACE_ALL_MATCHING}" \
+			)
+		done
+		processedString="${processingString}"
+	else
+		processedString=$( \
+			printf "%s" "${originalString}" | \
+			sed "s/${searchString}/${replacementString}/${REPLACE_ALL_MATCHING}" \
+		)
+	fi
+
+	#reverse string for reverse lookup
+	if [[ -z "${HEAD_REPLACE}" ]]; then
+		processedString=$(reverseString $processedString)
+	fi
+
+	processedString=${processedString//$SPACE_PLACEHOLDER/ }
 	printf "%s" "${processedString}"
 }
 
@@ -374,20 +429,40 @@ testRepeatString()
 
 testReplaceString()
 {
-	local originalString="clean up this mess!"
+	local originalString="clean up this lean mess!"
 	local replacedString=""
 
 	#insufficient parameters
 	replacedString=$(replaceString "${originalString}")
 	assertNull "Failed to return null string." "${replacedString}"
 
-	#full word replacement
-	replacedString=$(replaceString "${originalString}" "clean" "beam")
-	assertSame "Failed to replace whole word in string." "beam up this mess!" "${replacedString}"
+	#character replacement single
+	replacedString=$(replaceString -c1 "${originalString}" "c")
+	assertSame "Failed to replace first matching character in string." "lean up this lean mess!" "${replacedString}"
 
-	#character replacement
-	replacedString=$(replaceString "${originalString}" "c")
-	assertSame "Failed to replace character in string." "lean up this mess!" "${replacedString}"
+	#multiple character replacement single
+	replacedString=$(replaceString -c1 "${originalString}" "cup ")
+	assertSame "Failed to replace first matching character in string." "lean this lean mess!" "${replacedString}"
+
+	#multiple character replacement all
+	replacedString=$(replaceString -c "${originalString}" "ethsm")
+	assertSame "Failed to replace all matching characters in string." "clan up i lan !" "${replacedString}"
+
+	#multiple character replacement all from tail
+	replacedString=$(replaceString -c1t "${originalString}" "ss")
+	assertSame "Failed to replace first matching character in string." "clean up this lean me!" "${replacedString}"
+
+	#full word replacement single
+	replacedString=$(replaceString -1 "${originalString}" "clean" "beam")
+	assertSame "Failed to replace first matching whole word in string." "beam up this lean mess!" "${replacedString}"
+
+	#full word replacement all
+	replacedString=$(replaceString "${originalString}" "lean ")
+	assertSame "Failed to replace all matching whole words in string." "cup this mess!" "${replacedString}"
+
+	#full word replacement single from tail
+	replacedString=$(replaceString -1t "${originalString}" "lean ")
+	assertSame "Failed to replace all matching whole words in string." "clean up this mess!" "${replacedString}"
 }
 
 #this is an xUnit family testing framework for shell files
@@ -398,7 +473,7 @@ fi
 if [[ $SCRIPT_DEBUG -eq 1 ]]; then
 	printf "Start debug scripts.\n"
 
-	debugOutput=$(replaceString "something" "some" "nothing")
+	debugOutput=$(replaceString -c "something" "some" "nothing")
 
 	exit 0
 fi
