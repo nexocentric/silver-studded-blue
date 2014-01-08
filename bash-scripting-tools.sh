@@ -325,6 +325,7 @@ aggregateDirectory()
 			;;
 			i )
 				IGNORED_PATH_LIST="${OPTARG}"
+				displayVerboseInformation "Ignoring $IGNORED_PATH_LIST"
 			;;
 			#parse the directory recursively
 			R | r )
@@ -697,28 +698,36 @@ testReplaceString()
 testAggregateDirectory()
 {
 	local testDirectory="supercalifragilisticexpialidocious"
-	mkdir -p ./$testDirectory/supercalifragilistic/expialidocious
+	mkdir -p ./$testDirectory/super/cali/fragilistic/expi/ali/docious
 
-	local directories=$(aggregateDirectory -r ./$testDirectory)
+	local directories=$(aggregateDirectory -vr ./$testDirectory)
 	local files=
 	local directory=
 
 	for directory in $directories; do
-		#mkdir -p "$directory/supercalifragilisticexpialidocious/supercalifragilistic/expialidocious"
-		touch "$directory/random-file.txt"
+		touch "$directory/random-file[1].txt"
+		touch "$directory/random-file[2].txt"
 	done
 
 	#start test
-	directories=$(aggregateDirectory -r ./$testDirectory)
-	files=$(aggregateDirectory -r ./$testDirectory)
+	directories=$(aggregateDirectory -vr ./$testDirectory)
+	files=$(aggregateDirectory -vrf ./$testDirectory)
 
-	assertSame "Directory count not equal to 49." 49 ${#directories}
-	assertSame "File count not equal to 7." 7 ${#files}
+	echo "Someting ${directories[*]}"
+	directories=($directories)
+	assertSame "Directory count not equal to 6." 6 ${#directories[@]}
+	files=($files)
+	assertSame "File count not equal to 12." 12 ${#files[@]}
 
-	directories=$(aggregateDirectory ./$testDirectory)
-	assertSame "Directory count not equal to 2." 2 ${#directories}
+	directories=$(aggregateDirectory -v ./$testDirectory)
+	directories=($directories)
+	assertSame "Directory count not equal to 1." 1 ${#directories[@]}
 
-	rmdir -rf ./$testDirectory
+	# files=$(aggregateDirectory -vf -i "2.\.txt" ./$testDirectory)
+	# files=($files)
+	# assertSame "File count not equal to 6." 6 ${#files[@]}
+
+	# unlink ./$testDirectory
 }
 
 #this is an xUnit family testing framework for shell files
