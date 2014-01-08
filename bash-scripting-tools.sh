@@ -293,13 +293,14 @@ aggregateDirectory()
 {
 	#getopts settings
 	local OPTIND
-	local FUNCTION_OPTION_FLAGS="fiRrv"
+	local FUNCTION_OPTION_FLAGS="fi:Rrv"
 	
 	#function settings
 	local FUNCTION_USAGE="${FUNCNAME[0]} -${FUNCTION_OPTION_FLAGS} FOLDER PATH"
 	local GLOBIGNORE=.:..
 	local RECURSIVE_MODE=
 	local AGGREGATE_MODE="directories"
+	local IGNORED_PATH_LIST=
 
 	#function variables
 	local aggregatedContents=
@@ -313,7 +314,7 @@ aggregateDirectory()
 	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
 		case "${functionOption}" in
 			f )
-				functionOptionFlags="${functionOptionFlags}${OPTARG}"
+				functionOptionFlags="${functionOptionFlags}f"
 				AGGREGATE_MODE="files"
 			;;
 			# display the script usage menu on help or invalid argments
@@ -322,11 +323,15 @@ aggregateDirectory()
 				displayVerboseInformation "${FUNCTION_USAGE}"
 				return 0
 			;;
+			i )
+				IGNORED_PATH_LIST="${OPTARG}"
+			;;
 			#parse the directory recursively
 			R | r )
-				displayVerboseInformation "Replacement by individually matching characters has been set."
+				#displayVerboseInformation "Replacement by individually matching characters has been set."
 				RECURSIVE_MODE=1
-				functionOptionFlags="${functionOptionFlags}${OPTARG}"
+				functionOptionFlags="${functionOptionFlags}r"
+				#echo "$functionOptionFlags"
 			;;
 			# #display verbose information
 			v )
@@ -342,9 +347,11 @@ aggregateDirectory()
 	done
 
 	if [[ $# -lt 1 ]]; then
+		echo "invalid directory"
 		return
 	fi
  
+ 	directory=$1
 	for path in "$directory/"*; do
  
 		#無視すべきファイルを確認する
@@ -353,25 +360,48 @@ aggregateDirectory()
 		# 	printf "\n$pathを無視した\n無視リストにはいていた\nご確認ください\n\n"
 		# 	continue
 		# fi
- 
+ 		#echo $path
+ 		displayVerboseInformation "Processing $path"
+ 		#ファイルリストを確認する
+		for ignored in "${IGNORED_PATH_LIST[@]}"; do
+			#無視リストに入っているかを確認
+			if [[ "$path" =~ $ignored ]]; then
+				#このファイルはtarしてはいけない			
+				continue
+			fi
+		done
+
 		#ディレクトリとファイルを別々の配列に保存
 		if [[ -f "$path" ]]; then
 			#ファイル
 			files=("${files[@]}" "$path")
+			#echo "started"
 		elif [[ -d "$path" ]]; then
 			#ディレクトリ
 			directories=("${directories[@]}" "$path")
 			if [[ -n "${RECURSIVE_MODE}" ]]; then
-				if [[ -n "${functionOptionFlags}" ]]; then
+				#echo "something"
+				if [[ ! "${functionOptionFlags}" =~ - ]]; then
 					functionOptionFlags="-${functionOptionFlags}"
 				fi
-				$(aggregateDirectory "${functionOptionFlags}" "${path}")
+
+				if [[ "${AGGREGATE_MODE}" = "directories" ]]; then
+					directories=("${directories[@]}" "$(aggregateDirectory "${functionOptionFlags}" "$path")")
+				else
+					files=("${files[@]}" "$(aggregateDirectory "${functionOptionFlags}" "$path")")
+				fi
 			fi
 		fi
 	done
 
-	aggregatedContents=${!AGGREGATE_MODE}
-	printf "%s" "${aggregatedContents[@]}"
+	if [[ "${AGGREGATE_MODE}" = "directories" ]]; then
+		aggregatedContents="${directories[*]}"
+	else
+		aggregatedContents="${files[*]}"
+	fi
+	aggregatedContents=${aggregatedContents//  / }
+	aggregatedContents=${aggregatedContents/ /}
+	printf "%s" "${aggregatedContents}"
 }
 
 #===========================================================
@@ -662,6 +692,33 @@ testReplaceString()
 	#full word replacement single from tail
 	replacedString=$(replaceString -vft "${originalString}" "lean ")
 	assertSame "Failed to replace all matching whole words in string." "clean up this mess!" "${replacedString}"
+}
+
+testAggregateDirectory()
+{
+	local testDirectory="supercalifragilisticexpialidocious"
+	mkdir -p ./$testDirectory/supercalifragilistic/expialidocious
+
+	local directories=$(aggregateDirectory -r ./$testDirectory)
+	local files=
+	local directory=
+
+	for directory in $directories; do
+		#mkdir -p "$directory/supercalifragilisticexpialidocious/supercalifragilistic/expialidocious"
+		touch "$directory/random-file.txt"
+	done
+
+	#start test
+	directories=$(aggregateDirectory -r ./$testDirectory)
+	files=$(aggregateDirectory -r ./$testDirectory)
+
+	assertSame "Directory count not equal to 49." 49 ${#directories}
+	assertSame "File count not equal to 7." 7 ${#files}
+
+	directories=$(aggregateDirectory ./$testDirectory)
+	assertSame "Directory count not equal to 2." 2 ${#directories}
+
+	rmdir -rf ./$testDirectory
 }
 
 #this is an xUnit family testing framework for shell files
