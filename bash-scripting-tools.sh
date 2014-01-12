@@ -17,11 +17,13 @@
 SCRIPT_NAME="Silver-Studded-Blue BASH Scripting Tools"
 SCRIPT_VERSION="0.01"
 SCRIPT_VERSION_NAME="azuki"
-SCRIPT_OPTION_FLAGS="D:d:hTtVv"
-SCRIPT_SELF_TEST_MODE=0
+SCRIPT_OPTION_FLAGS="Dd:hTtVv"
 SCRIPT_DEBUG_MODE=0
+SCRIPT_SELF_TEST_MODE=0
+SCRIPT_FUNCTION_DEBUG_MODE=0
 SCRIPT_FUNCTION_TO_DEBUG=
 SCRIPT_VERBOSE_MODE=0
+SCRIPT_PATH="$BASH_SOURCE"
 
 #───────────────────────────────────────────────────────────────────────────────
 # Script Control Functions
@@ -36,24 +38,11 @@ SCRIPT_VERBOSE_MODE=0
 #===========================================================
 displayScriptHeader()
 {
-	#you want to make something like this
-	#================================================#
-	# SCRIPT_NAME SCRIPT_VERSION SCRIPT_VERSION_NAME #
-	#================================================#
-	return 0
-}
- 
-#===========================================================
-# [author]
-# Dzakuma, Dodzidenu
-# [summary]
-# [parameters]
-# [return]
-#===========================================================
-displayScriptLicense()
-{
-	#MIT something somethimg something...
-	return 0
+	local scriptName="${SCRIPT_NAME}"
+
+	cat << SCRIPT_HEADER
+	$scriptName
+SCRIPT_HEADER
 }
 
 #===========================================================
@@ -75,67 +64,60 @@ displayVerboseInformation()
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
-# This function repeats a string N number of times.
-# [parameters]
-# 1) The string to be repeated
-# 2) The number of times to repeat the string
-# [return]
-# 1) If no errors occur during string repetition this
-# function prints the repeated string to standard output.
-# 2) Blank on error.
-#===========================================================
-repeatString()
-{
-	local string=
-	local maxRepetitions=
-	local generatedString=
-
-	#check that string passed
-	if [[ $# -ne 2 ]]; then
-			return
-	fi
-
-	#assign positional parameters
-	string="$1"
-	maxRepetitions=$2
-
-	#check that number passed
-	if [[ ! $2 -gt 0 ]]; then
-		return
-	fi
-
-	#generate string
-	for ((repetition=0; repetition<$maxRepetitions; repetition++)); do
-		generatedString="${generatedString}${string}"
-	done
-	
-	#display generated string
-	printf "%s" "${generatedString}"
-}
-
-#===========================================================
-# [author]
-# Dodzi Y. Dzakuma
-# [summary]
 # [parameters]
 # [return]
 #===========================================================
 displayScriptUsage()
 {
-	clear
-	printf "=============================================\n"
-	printf "%s %s\n" "${SCRIPT_NAME}" "${SCRIPT_VERSION}"
-	printf "%s\n\n" "----------------------------------------------"
-	printf "Synopsis:\n"
-	printf "%s [-h]\n"
-	printf "\n"
-	printf "Usage:\n"
-	printf "[] are used to designate optional fields\n"
-	printf "\n"
-	printf "Flags:\n"
-	printf " [-h] : display this message\n"
-	printf "\n"
-	printf "=============================================\n\n"
+	cat << SCRIPT_USAGE
+NAME
+	$SCRIPT_NAME - include file for use to quickly build bash scripts
+
+USAGE
+	. [$SCRIPT_PATH]
+	source [$SCRIPT_PATH]
+
+DESCRIPTION
+	This is an include file for use in bash shell scripts. This script is sourced into a script after which the functions contained in this can be used freely.
+
+	Information about this script can be obtained by running the script with the following flags:
+
+	-D	run a script wide debug on all functions available for export in this script
+
+	-d ["FUNCTION_NAME"]	run specified function for debug
+
+	-h	display this information
+
+	-T | -t	run all test suites on this script to ensure that it is safe for use in your environment
+
+	-V	display version information
+
+	-v	display verbose information when running script tests
+
+FUNCTION LIST
+	$SCRIPT_NAME contains the following functions:
+
+	stringToArray
+	assertInterger
+	displayFunctionSummary
+	repeatString
+	reverseString
+	replaceString
+
+	For more information on the usage of each function please run:
+	. [$SCRIPT_PATH] -d "FUNCTION_NAME -h"
+
+AUTHOR
+	Written by Dodzi Y. Dzakuma.
+
+REPORTING BUGS
+	Report $SCRIPT_NAME on the GitHub page of this script.
+
+COPYRIGHT
+	The MIT License (MIT)
+	Copyright (c) 2013 Dodzi Y. Dzakuma (http://www.nexocentric.com)
+
+SCRIPT_USAGE
 }
 
 #===========================================================
@@ -166,34 +148,45 @@ cleanUp()
 while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
 	case "${scriptOption}" in
 		#debug
-		D | d )
+		D )
 			SCRIPT_DEBUG_MODE=1
+		;;
+		#debug function
+		d )
+			SCRIPT_FUNCTION_DEBUG_MODE=1
 			SCRIPT_FUNCTION_TO_DEBUG="${OPTARG}"
-			break
 		;;
 		# turn on self testing
 		T | t )
 			SCRIPT_SELF_TEST_MODE=1
-			break
 		;;
 		# display the script usage menu on help or invalid argments
-		h | V )
+		h )
 			displayScriptHeader
-			if [[ "${scriptOption}" = "V" ]]; then
-					exit
-			fi
 			displayScriptUsage
-			cleanUp 1
-			exit
+			exit 0
+		;;
+		#version information
+		V )
+			cat << VERSION_INFORMATION
+${SCRIPT_NAME} ${SCRIPT_VERSION}
+The MIT License (MIT)
+Copyright (c) 2013 Dodzi Y. Dzakuma (http://www.nexocentric.com)
+
+Thank you for taking the time to look through and/or use this script.
+Your support is greatly appreciated.
+VERSION_INFORMATION
+			exit 0
 		;;
 		# verbose mode
 		v )
-										
+			SCRIPT_VERBOSE_MODE=1
 		;;
 	esac
-	#remove parsed options from the list
-	shift $((OPTIND-1))
 done
+
+#remove parsed options from the list
+shift $((OPTIND-1))
 
 #───────────────────────────────────────────────────────────────────────────────
 # Script Functions
@@ -541,9 +534,10 @@ replaceString()
 				return 1
 			;;
 		esac
-		#remove the options that were parsed
-		shift $((OPTIND-1))
 	done
+
+	#remove the options that were parsed
+	shift $((OPTIND-1))
 
 	if [[ $# -eq 3 ]]; then
 		replacementString=$3
@@ -627,6 +621,48 @@ replaceString()
 	printf "%s" "${processedString}"
 }
 
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# This function repeats a string N number of times.
+# [parameters]
+# 1) The string to be repeated
+# 2) The number of times to repeat the string
+# [return]
+# 1) If no errors occur during string repetition this
+# function prints the repeated string to standard output.
+# 2) Blank on error.
+#===========================================================
+repeatString()
+{
+	local string=
+	local maxRepetitions=
+	local generatedString=
+
+	#check that string passed
+	if [[ $# -ne 2 ]]; then
+			return
+	fi
+
+	#assign positional parameters
+	string="$1"
+	maxRepetitions=$2
+
+	#check that number passed
+	if [[ ! $2 -gt 0 ]]; then
+		return
+	fi
+
+	#generate string
+	for ((repetition=0; repetition<$maxRepetitions; repetition++)); do
+		generatedString="${generatedString}${string}"
+	done
+	
+	#display generated string
+	printf "%s" "${generatedString}"
+}
+
 # dynamicVariable()
 # {
 #         local OPTIND
@@ -667,33 +703,6 @@ replaceString()
 		
 #         return 0
 # }
-
-
-TABLE_VARIABLE_STEM="_table_column_"
-addDynamicTableData()
-{
-	local tableName="$1" #you might want to use sed to make sure that you're not
-	##using sysmbols that can't be used in as a variable
-	shift
-local rowDataList="$@"
-	local columnIndex=0
-
-	for cellData in "${rowDataList[@]}"; do
-dynamicVariable -a "${tableName}${TABLE_VARIABLE_STEM}${columnIndex}" "${cellData}"
-		columnIndex=$((columnIndex++))
-	done
-}
-
-displayDynamicTable()
-{
-	local columnDataVariablePrefix="$1${TABLE_VARIABLE_STEM}"
-	local columnCount=0
-
-	#get the number of columns to be displayed
-	while [[ -n $(dynamicVariable -p "${columnDataVariablePrefix}${columnCount}") ]]; do
-			$((columnCount++))
-	done
-}
 
 #───────────────────────────────────────────────────────────────────────────────
 # Function Test
@@ -887,15 +896,24 @@ fi
 
 fi
 
-if [[ $SCRIPT_DEBUG_MODE -eq 1 ]]; then
-	printf "Start debugging scripts.\n"
-	#this right now is unsafe!!
+#───────────────────────────────────────────────────────────────────────────────
+# Script Debugging
+#───────────────────────────────────────────────────────────────────────────────
+if [[ $SCRIPT_FUNCTION_DEBUG_MODE -eq 1 ]]; then
+	printf "Running single function to debug.\n${$SCRIPT_FUNCTION_TO_DEBUG}\n"
 	eval $SCRIPT_FUNCTION_TO_DEBUG
 	exit 0
 fi
+
+if [[ $SCRIPT_DEBUG_MODE -eq 1 ]]; then
+	printf "Running script for full debug.\n"
+	exit 0
+fi
+
 #───────────────────────────────────────────────────────────────────────────────
 # Function Exports
 #───────────────────────────────────────────────────────────────────────────────
+export -f stringToArray
 export -f assertInterger
 export -f displayFunctionSummary
 export -f repeatString
