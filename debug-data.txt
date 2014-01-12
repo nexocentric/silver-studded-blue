@@ -1,0 +1,1802 @@
+These are the passed parameters for this function [-r ./supercalifragilisticexpialidocious]
+Flags for the next run -r 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-r  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-r ./supercalifragilisticexpialidocious/super]
+Flags for the next run -r 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-r  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-r ./supercalifragilisticexpialidocious/super/cali]
+Flags for the next run -r 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-r  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-r ./supercalifragilisticexpialidocious/super/cali/fragi]
+Flags for the next run -r 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-r  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-r ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Flags for the next run -r 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-r  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-r ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Flags for the next run -r 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-r  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-r ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Flags for the next run -r 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-r  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-r ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Flags for the next run -r 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/*]
+These are the passed parameters for this function [-vr ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Flags for the next run -vr 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vr  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vr ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Flags for the next run -vr 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vr  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vr ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Flags for the next run -vr 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vr  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vr ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Flags for the next run -vr 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vr  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vr ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Flags for the next run -vr 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vr  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vr ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Flags for the next run -vr 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vr  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vr ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Flags for the next run -vr 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vr  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vr ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Flags for the next run -vr 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+These are the passed parameters for this function [-vrf ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Flags for the next run -vrf 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vrf  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vrf ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Flags for the next run -vrf 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vrf  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vrf ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Flags for the next run -vrf 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vrf  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vrf ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Flags for the next run -vrf 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vrf  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vrf ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Flags for the next run -vrf 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vrf  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vrf ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Flags for the next run -vrf 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vrf  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vrf ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Flags for the next run -vrf 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vrf  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vrf ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Flags for the next run -vrf 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+These are the passed parameters for this function [-v ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Flags for the next run -v 
+Ignoring the following regex: 
+Processing [./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i 1 ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Flags for the next run -vfr -i 1 
+Ignoring the following regex: 1
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i 1  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i 1 ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Flags for the next run -vfr -i 1 
+Ignoring the following regex: 1
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i 1  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i 1 ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Flags for the next run -vfr -i 1 
+Ignoring the following regex: 1
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i 1  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i 1 ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Flags for the next run -vfr -i 1 
+Ignoring the following regex: 1
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i 1  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i 1 ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Flags for the next run -vfr -i 1 
+Ignoring the following regex: 1
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i 1  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i 1 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Flags for the next run -vfr -i 1 
+Ignoring the following regex: 1
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i 1  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i 1 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Flags for the next run -vfr -i 1 
+Ignoring the following regex: 1
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i 1  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i 1 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Flags for the next run -vfr -i 1 
+Ignoring the following regex: 1
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [1]
+Matching [1] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-file[1].txt
+These are the passed parameters for this function [-vfr -i 2 ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [2] added to ignore list
+Ignore list is now [2]
+Flags for the next run -vfr -i 2 
+Ignoring the following regex: 2
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i 2  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i 2 ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [2] added to ignore list
+Ignore list is now [2]
+Flags for the next run -vfr -i 2 
+Ignoring the following regex: 2
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i 2  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i 2 ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [2] added to ignore list
+Ignore list is now [2]
+Flags for the next run -vfr -i 2 
+Ignoring the following regex: 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [2] added to ignore list
+Ignore list is now [2]
+Flags for the next run -vfr -i 2 
+Ignoring the following regex: 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [2] added to ignore list
+Ignore list is now [2]
+Flags for the next run -vfr -i 2 
+Ignoring the following regex: 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [2] added to ignore list
+Ignore list is now [2]
+Flags for the next run -vfr -i 2 
+Ignoring the following regex: 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [2] added to ignore list
+Ignore list is now [2]
+Flags for the next run -vfr -i 2 
+Ignoring the following regex: 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [2] added to ignore list
+Ignore list is now [2]
+Flags for the next run -vfr -i 2 
+Ignoring the following regex: 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [2]
+Matching [2] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+These are the passed parameters for this function [-vfr -i 3 ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [3] added to ignore list
+Ignore list is now [3]
+Flags for the next run -vfr -i 3 
+Ignoring the following regex: 3
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i 3  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i 3 ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [3] added to ignore list
+Ignore list is now [3]
+Flags for the next run -vfr -i 3 
+Ignoring the following regex: 3
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i 3  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i 3 ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [3] added to ignore list
+Ignore list is now [3]
+Flags for the next run -vfr -i 3 
+Ignoring the following regex: 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [3] added to ignore list
+Ignore list is now [3]
+Flags for the next run -vfr -i 3 
+Ignoring the following regex: 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [3] added to ignore list
+Ignore list is now [3]
+Flags for the next run -vfr -i 3 
+Ignoring the following regex: 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [3] added to ignore list
+Ignore list is now [3]
+Flags for the next run -vfr -i 3 
+Ignoring the following regex: 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [3] added to ignore list
+Ignore list is now [3]
+Flags for the next run -vfr -i 3 
+Ignoring the following regex: 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [3] added to ignore list
+Ignore list is now [3]
+Flags for the next run -vfr -i 3 
+Ignoring the following regex: 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [3]
+Matching [3] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+These are the passed parameters for this function [-vfr -i .txt ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [.txt] added to ignore list
+Ignore list is now [.txt]
+Flags for the next run -vfr -i .txt 
+Ignoring the following regex: .txt
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i .txt  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i .txt ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [.txt] added to ignore list
+Ignore list is now [.txt]
+Flags for the next run -vfr -i .txt 
+Ignoring the following regex: .txt
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i .txt  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i .txt ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [.txt] added to ignore list
+Ignore list is now [.txt]
+Flags for the next run -vfr -i .txt 
+Ignoring the following regex: .txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i .txt  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i .txt ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [.txt] added to ignore list
+Ignore list is now [.txt]
+Flags for the next run -vfr -i .txt 
+Ignoring the following regex: .txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i .txt  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i .txt ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [.txt] added to ignore list
+Ignore list is now [.txt]
+Flags for the next run -vfr -i .txt 
+Ignoring the following regex: .txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i .txt  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i .txt ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [.txt] added to ignore list
+Ignore list is now [.txt]
+Flags for the next run -vfr -i .txt 
+Ignoring the following regex: .txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i .txt  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i .txt ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [.txt] added to ignore list
+Ignore list is now [.txt]
+Flags for the next run -vfr -i .txt 
+Ignoring the following regex: .txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i .txt  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i .txt ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [.txt] added to ignore list
+Ignore list is now [.txt]
+Flags for the next run -vfr -i .txt 
+Ignoring the following regex: .txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [.txt]
+Matching [.txt] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-file[1].txt
+These are the passed parameters for this function [-vfr -i .doc ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [.doc] added to ignore list
+Ignore list is now [.doc]
+Flags for the next run -vfr -i .doc 
+Ignoring the following regex: .doc
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [.doc]
+Matching [.doc] against [./supercalifragilisticexpialidocious/super]
+Ignored ./supercalifragilisticexpialidocious/super
+ASSERT:(./bash-scripting-tools.sh:790) File count not equal to 14. expected:<14> but was:<0>
+These are the passed parameters for this function [-vfr -i .html ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [.html] added to ignore list
+Ignore list is now [.html]
+Flags for the next run -vfr -i .html 
+Ignoring the following regex: .html
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i .html  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i .html ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [.html] added to ignore list
+Ignore list is now [.html]
+Flags for the next run -vfr -i .html 
+Ignoring the following regex: .html
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i .html  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i .html ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [.html] added to ignore list
+Ignore list is now [.html]
+Flags for the next run -vfr -i .html 
+Ignoring the following regex: .html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i .html  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i .html ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [.html] added to ignore list
+Ignore list is now [.html]
+Flags for the next run -vfr -i .html 
+Ignoring the following regex: .html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i .html  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i .html ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [.html] added to ignore list
+Ignore list is now [.html]
+Flags for the next run -vfr -i .html 
+Ignoring the following regex: .html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i .html  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i .html ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [.html] added to ignore list
+Ignore list is now [.html]
+Flags for the next run -vfr -i .html 
+Ignoring the following regex: .html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i .html  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i .html ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [.html] added to ignore list
+Ignore list is now [.html]
+Flags for the next run -vfr -i .html 
+Ignoring the following regex: .html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i .html  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i .html ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [.html] added to ignore list
+Ignore list is now [.html]
+Flags for the next run -vfr -i .html 
+Ignoring the following regex: .html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [.html]
+Matching [.html] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+These are the passed parameters for this function [-vfr -i text ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [text] added to ignore list
+Ignore list is now [text]
+Flags for the next run -vfr -i text 
+Ignoring the following regex: text
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i text  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i text ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [text] added to ignore list
+Ignore list is now [text]
+Flags for the next run -vfr -i text 
+Ignoring the following regex: text
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i text  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i text ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [text] added to ignore list
+Ignore list is now [text]
+Flags for the next run -vfr -i text 
+Ignoring the following regex: text
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i text  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i text ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [text] added to ignore list
+Ignore list is now [text]
+Flags for the next run -vfr -i text 
+Ignoring the following regex: text
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i text  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i text ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [text] added to ignore list
+Ignore list is now [text]
+Flags for the next run -vfr -i text 
+Ignoring the following regex: text
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i text  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i text ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [text] added to ignore list
+Ignore list is now [text]
+Flags for the next run -vfr -i text 
+Ignoring the following regex: text
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i text  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i text ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [text] added to ignore list
+Ignore list is now [text]
+Flags for the next run -vfr -i text 
+Ignoring the following regex: text
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i text  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i text ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [text] added to ignore list
+Ignore list is now [text]
+Flags for the next run -vfr -i text 
+Ignoring the following regex: text
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [text]
+Matching [text] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-file[1].txt
+These are the passed parameters for this function [-vfr -i document ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [document] added to ignore list
+Ignore list is now [document]
+Flags for the next run -vfr -i document 
+Ignoring the following regex: document
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i document  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i document ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [document] added to ignore list
+Ignore list is now [document]
+Flags for the next run -vfr -i document 
+Ignoring the following regex: document
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i document  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i document ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [document] added to ignore list
+Ignore list is now [document]
+Flags for the next run -vfr -i document 
+Ignoring the following regex: document
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i document  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i document ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [document] added to ignore list
+Ignore list is now [document]
+Flags for the next run -vfr -i document 
+Ignoring the following regex: document
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i document  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i document ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [document] added to ignore list
+Ignore list is now [document]
+Flags for the next run -vfr -i document 
+Ignoring the following regex: document
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i document  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i document ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [document] added to ignore list
+Ignore list is now [document]
+Flags for the next run -vfr -i document 
+Ignoring the following regex: document
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i document  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i document ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [document] added to ignore list
+Ignore list is now [document]
+Flags for the next run -vfr -i document 
+Ignoring the following regex: document
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i document  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i document ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [document] added to ignore list
+Ignore list is now [document]
+Flags for the next run -vfr -i document 
+Ignoring the following regex: document
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [document]
+Matching [document] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+These are the passed parameters for this function [-vfr -i random ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [random] added to ignore list
+Ignore list is now [random]
+Flags for the next run -vfr -i random 
+Ignoring the following regex: random
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i random  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i random ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [random] added to ignore list
+Ignore list is now [random]
+Flags for the next run -vfr -i random 
+Ignoring the following regex: random
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i random  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i random ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [random] added to ignore list
+Ignore list is now [random]
+Flags for the next run -vfr -i random 
+Ignoring the following regex: random
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i random  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i random ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [random] added to ignore list
+Ignore list is now [random]
+Flags for the next run -vfr -i random 
+Ignoring the following regex: random
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i random  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i random ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [random] added to ignore list
+Ignore list is now [random]
+Flags for the next run -vfr -i random 
+Ignoring the following regex: random
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i random  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i random ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [random] added to ignore list
+Ignore list is now [random]
+Flags for the next run -vfr -i random 
+Ignoring the following regex: random
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i random  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i random ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [random] added to ignore list
+Ignore list is now [random]
+Flags for the next run -vfr -i random 
+Ignoring the following regex: random
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i random  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i random ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [random] added to ignore list
+Ignore list is now [random]
+Flags for the next run -vfr -i random 
+Ignoring the following regex: random
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [random]
+Matching [random] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-file[1].txt
+These are the passed parameters for this function [-vfr -i 1 -i 2 ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Flags for the next run -vfr -i 1 -i 2 
+Ignoring the following regex: 1 2
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super]
+Matching [2] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i 1 -i 2  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i 1 -i 2 ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Flags for the next run -vfr -i 1 -i 2 
+Ignoring the following regex: 1 2
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i 1 -i 2  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i 1 -i 2 ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Flags for the next run -vfr -i 1 -i 2 
+Ignoring the following regex: 1 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i 1 -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i 1 -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Flags for the next run -vfr -i 1 -i 2 
+Ignoring the following regex: 1 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i 1 -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i 1 -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Flags for the next run -vfr -i 1 -i 2 
+Ignoring the following regex: 1 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i 1 -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i 1 -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Flags for the next run -vfr -i 1 -i 2 
+Ignoring the following regex: 1 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i 1 -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i 1 -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Flags for the next run -vfr -i 1 -i 2 
+Ignoring the following regex: 1 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i 1 -i 2  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i 1 -i 2 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Flags for the next run -vfr -i 1 -i 2 
+Ignoring the following regex: 1 2
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [1 2]
+Matching [1] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-file[1].txt
+These are the passed parameters for this function [-vfr -i 1 -i 2 -i 3 ./supercalifragilisticexpialidocious]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Regex [3] added to ignore list
+Ignore list is now [1 2 3]
+Flags for the next run -vfr -i 1 -i 2 -i 3 
+Ignoring the following regex: 1 2 3
+Processing [./supercalifragilisticexpialidocious/super]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super]
+Matching [2] against [./supercalifragilisticexpialidocious/super]
+Matching [3] against [./supercalifragilisticexpialidocious/super]
+Parameter values on recursive call[-vfr -i 1 -i 2 -i 3  ./supercalifragilisticexpialidocious/super]
+These are the passed parameters for this function [-vfr -i 1 -i 2 -i 3 ./supercalifragilisticexpialidocious/super]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Regex [3] added to ignore list
+Ignore list is now [1 2 3]
+Flags for the next run -vfr -i 1 -i 2 -i 3 
+Ignoring the following regex: 1 2 3
+Processing [./supercalifragilisticexpialidocious/super/cali]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali]
+Parameter values on recursive call[-vfr -i 1 -i 2 -i 3  ./supercalifragilisticexpialidocious/super/cali]
+These are the passed parameters for this function [-vfr -i 1 -i 2 -i 3 ./supercalifragilisticexpialidocious/super/cali]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Regex [3] added to ignore list
+Ignore list is now [1 2 3]
+Flags for the next run -vfr -i 1 -i 2 -i 3 
+Ignoring the following regex: 1 2 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi]
+Parameter values on recursive call[-vfr -i 1 -i 2 -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi]
+These are the passed parameters for this function [-vfr -i 1 -i 2 -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Regex [3] added to ignore list
+Ignore list is now [1 2 3]
+Flags for the next run -vfr -i 1 -i 2 -i 3 
+Ignoring the following regex: 1 2 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Parameter values on recursive call[-vfr -i 1 -i 2 -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+These are the passed parameters for this function [-vfr -i 1 -i 2 -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi/listic]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Regex [3] added to ignore list
+Ignore list is now [1 2 3]
+Flags for the next run -vfr -i 1 -i 2 -i 3 
+Ignoring the following regex: 1 2 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Parameter values on recursive call[-vfr -i 1 -i 2 -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+These are the passed parameters for this function [-vfr -i 1 -i 2 -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Regex [3] added to ignore list
+Ignore list is now [1 2 3]
+Flags for the next run -vfr -i 1 -i 2 -i 3 
+Ignoring the following regex: 1 2 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Parameter values on recursive call[-vfr -i 1 -i 2 -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+These are the passed parameters for this function [-vfr -i 1 -i 2 -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Regex [3] added to ignore list
+Ignore list is now [1 2 3]
+Flags for the next run -vfr -i 1 -i 2 -i 3 
+Ignoring the following regex: 1 2 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Parameter values on recursive call[-vfr -i 1 -i 2 -i 3  ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+These are the passed parameters for this function [-vfr -i 1 -i 2 -i 3 ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious]
+Verbose mode has been enabled.
+Regex [1] added to ignore list
+Ignore list is now [1]
+Regex [2] added to ignore list
+Ignore list is now [1 2]
+Regex [3] added to ignore list
+Ignore list is now [1 2 3]
+Flags for the next run -vfr -i 1 -i 2 -i 3 
+Ignoring the following regex: 1 2 3
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/docious/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/ali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/expi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/listic/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/fragi/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Matching [3] against [./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/cali/random-text-file[1].txt
+Processing [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Matching [2] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Matching [3] against [./supercalifragilisticexpialidocious/super/random-html-document[3].html]
+Ignored ./supercalifragilisticexpialidocious/super/random-html-document[3].html
+Processing [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Matching [2] against [./supercalifragilisticexpialidocious/super/random-text-document[2].doc]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-document[2].doc
+Processing [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+This is the entire ignore list [1 2 3]
+Matching [1] against [./supercalifragilisticexpialidocious/super/random-text-file[1].txt]
+Ignored ./supercalifragilisticexpialidocious/super/random-text-file[1].txt

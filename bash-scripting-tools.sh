@@ -283,15 +283,17 @@ aggregateDirectory()
 	local directory=
 	local directories=
 	local functionOptionFlags=
+	local functionOptionFlagsWithArguments= #remove the function and rename to optionFlagsWithArguments
 	local files=
 	local path=
 
+	displayVerboseInformation "These are the passed parameters for this function [$*]"
 	#parse get opts
 	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
 		case "${functionOption}" in
 			f )
-				functionOptionFlags="${functionOptionFlags}f"
 				AGGREGATE_MODE="files"
+				functionOptionFlags="${functionOptionFlags}${functionOption}"
 			;;
 			# display the script usage menu on help or invalid argments
 			h )
@@ -300,42 +302,58 @@ aggregateDirectory()
 				return 0
 			;;
 			i )
-				IGNORED_PATH_LIST=(${IGNORED_PATH_LIST} ${OPTARG})
-				displayVerboseInformation "Regex [${IGNORED_PATH_LIST}] added to ignore list"
-				functionOptionFlags="${functionOptionFlags} -i ${OPTARG}"
+				IGNORED_PATH_LIST=(${IGNORED_PATH_LIST[@]} "${OPTARG}")
+				displayVerboseInformation "Regex [${OPTARG}] added to ignore list"
+				displayVerboseInformation "Ignore list is now [${IGNORED_PATH_LIST[*]}]"
+				functionOptionFlagsWithArguments="${functionOptionFlagsWithArguments}-${functionOption} ${OPTARG} "
 			;;
 			#parse the directory recursively
 			R | r )
 				#displayVerboseInformation "Replacement by individually matching characters has been set."
 				RECURSIVE_MODE=1
-				functionOptionFlags="${functionOptionFlags}r"
+				functionOptionFlags="${functionOptionFlags}${functionOption}"
 				#echo "$functionOptionFlags"
 			;;
-			# #display verbose information
+			#display verbose information
 			v )
 				displayVerboseInformation "Verbose mode has been enabled."
+				functionOptionFlags="${functionOptionFlags}${functionOption}"
 			;;
 			\? )
-				printf "-%s is an invalid option. \nPlease use the -h flag to display usage information.\n" "$OPTARG"
-				return 1
+				displayVerboseInformation "-%s is an invalid option. \nPlease use the -h flag to display usage information.\n"
+				#return 1
 			;;
-		esac
-		#remove the options that were parsed
-		shift $((OPTIND-1))
+		esac	
 	done
+	#remove the options that were parsed
+	shift $((OPTIND-1))
+
+	#arrange options flags for next run so that it can run smoothly
+	if [[ -n "${functionOptionFlags}" ]]; then
+		functionOptionFlags="-${functionOptionFlags} "
+	fi
+
+	if [[ -n "${functionOptionFlagsWithArguments}" ]]; then
+		#the space at the beginning of this string is needed
+		functionOptionFlagsWithArguments="${functionOptionFlagsWithArguments}"
+	fi
+	functionOptionFlags="${functionOptionFlags}${functionOptionFlagsWithArguments}"
+	displayVerboseInformation "Flags for the next run ${functionOptionFlags}"
 
 	if [[ $# -lt 1 ]]; then
-			echo "invalid directory"
-			return
+		echo "invalid directory"
+		return
 	fi
 	directory=$1
 	displayVerboseInformation "Ignoring the following regex: ${IGNORED_PATH_LIST[*]}"
 	for path in "$directory/"*; do
 
-		displayVerboseInformation "Processing $path"
+		displayVerboseInformation "Processing [$path]"
 		if [[ -n "${IGNORED_PATH_LIST[0]}" ]]; then
 
+			displayVerboseInformation "This is the entire ignore list [${IGNORED_PATH_LIST[*]}]"
 			for ignored in "${IGNORED_PATH_LIST[@]}"; do
+				ignored=$(regexSafeString $ignored)
 				displayVerboseInformation "Matching [$ignored] against [$path]"
 				if [[ "$path" =~ $ignored ]]; then
 					displayVerboseInformation "Ignored ${path}"
@@ -365,9 +383,11 @@ aggregateDirectory()
 				fi
 
 				if [[ "${AGGREGATE_MODE}" = "directories" ]]; then
-					directories=("${directories[@]}" "$(aggregateDirectory "${functionOptionFlags}" "$path")")
+					displayVerboseInformation "Parameter values on recursive call[${functionOptionFlags} $path]"
+					directories=("${directories[@]}" $(aggregateDirectory ${functionOptionFlags} "$path"))
 				else
-					files=("${files[@]}" "$(aggregateDirectory "${functionOptionFlags}" "$path")")
+					displayVerboseInformation "Parameter values on recursive call[${functionOptionFlags} $path]"
+					files=("${files[@]}" $(aggregateDirectory ${functionOptionFlags} "$path"))
 				fi
 			fi
 		fi
@@ -657,7 +677,7 @@ testRepeatString()
 	assertSame "($BASH_SOURCE:${LINENO}) Failed to duplicate pop lyrics." "Womanizer, Womanizer, Womanizer" "${popLyrics}"
 }
 
-testReplaceString()
+ReplaceString()
 {
 	local originalString="clean up this lean mess!"
 	local symbolsString="?!#$%&'()=-~^|\@[]{}+;*:<>,./_?"
@@ -725,13 +745,13 @@ testAggregateDirectory()
 	local testDirectory="supercalifragilisticexpialidocious"
 	mkdir -p ./$testDirectory/super/cali/fragi/listic/expi/ali/docious
 
-	local directories=$(aggregateDirectory -vr ./$testDirectory)
+	local directories=$(aggregateDirectory -r ./$testDirectory)
 	local files=
 	local directory=
 
 	for directory in $directories; do
 		touch "$directory/random-text-file[1].txt"
-		touch "$directory/random-text-document[2].doc"
+		touch "$directory/random-text-document-file[2].doc"
 		touch "$directory/random-html-document[3].html"
 	done
 
@@ -750,49 +770,54 @@ testAggregateDirectory()
 	assertSame "Directory count not equal to 1." 1 ${#directories[@]}
 
 	#ignore tests
-	files=$(aggregateDirectory -vfri 1 ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i 1 ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri 2 ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i 2 ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri 3 ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i 3 ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri \.txt ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i \.txt ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri \.doc ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i \.doc ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri \.html ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i \.html ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri text ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i text ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 7." 7 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri document ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i document ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 7." 7 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri random ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i random ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 0." 0 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri 1 -i 2 ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i 1 -i 2 ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 7." 7 ${#files[@]}
 
-	files=$(aggregateDirectory -vfri 1 -i 2 -i 3 ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i 1 -i 2 -i 3 ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 0." 0 ${#files[@]}
+
+	#complicated regex
+	files=$(aggregateDirectory -vfr -i .*do.*\(file\)\[\d\]\.do.* ./$testDirectory)
+	files=($files)
+	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 7." 7 ${#files[@]}
 
 	rm -rf ./$testDirectory
 }
