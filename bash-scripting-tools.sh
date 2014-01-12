@@ -199,11 +199,25 @@ done
 # Script Functions
 #───────────────────────────────────────────────────────────────────────────────
 
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 stringToArray()
 {
 	printf "%s" "$(echo $1 | sed 's/\(.\)/\1 /g')"
 }
 
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 displayFunctionSummary()
 {
 	#getopts settings
@@ -243,6 +257,13 @@ displayFunctionSummary()
 	done
 }
 
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 reverseString()
 {
 	if [[ $# -lt 1 ]]; then
@@ -255,7 +276,14 @@ reverseString()
 	printf "%s" "${reversedString}"
 }
 
-isInteger()
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
+assertInterger()
 {
 	if [[ $# -lt 1 ]]; then
 		return
@@ -265,6 +293,13 @@ isInteger()
 	test "$1" && printf "%d" "$1" > /dev/null;
 }
 
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 aggregateDirectory()
 {
 	#getopts settings
@@ -302,7 +337,7 @@ aggregateDirectory()
 				return 0
 			;;
 			i )
-				IGNORED_PATH_LIST=(${IGNORED_PATH_LIST[@]} "${OPTARG}")
+				IGNORED_PATH_LIST=(${IGNORED_PATH_LIST[@]} ${OPTARG})
 				displayVerboseInformation "Regex [${OPTARG}] added to ignore list"
 				displayVerboseInformation "Ignore list is now [${IGNORED_PATH_LIST[*]}]"
 				functionOptionFlagsWithArguments="${functionOptionFlagsWithArguments}-${functionOption} ${OPTARG} "
@@ -353,9 +388,8 @@ aggregateDirectory()
 
 			displayVerboseInformation "This is the entire ignore list [${IGNORED_PATH_LIST[*]}]"
 			for ignored in "${IGNORED_PATH_LIST[@]}"; do
-				ignored=$(regexSafeString $ignored)
-				displayVerboseInformation "Matching [$ignored] against [$path]"
-				if [[ "$path" =~ $ignored ]]; then
+				displayVerboseInformation "Matching [$ignored] against [$(basename $path)]"
+				if [[ "$(basename $path)" =~ $ignored ]]; then
 					displayVerboseInformation "Ignored ${path}"
 					ignored=
 					break
@@ -429,6 +463,13 @@ regexSafeString()
 	printf "%s" "${originalString}"
 }
 
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 replaceString()
 {
 	#getopts settings
@@ -477,7 +518,7 @@ replaceString()
 			;;
 			# replace the nth instance of match
 			n )
-				isInteger "${OPTARG}"
+				assertInterger "${OPTARG}"
 				if [[ $? -ne 0 ]]; then
 					displayVerboseInformation "Invalid argument for -n ${OPTARG}"
 					displayVerboseInformation "Function usage:"
@@ -677,7 +718,7 @@ testRepeatString()
 	assertSame "($BASH_SOURCE:${LINENO}) Failed to duplicate pop lyrics." "Womanizer, Womanizer, Womanizer" "${popLyrics}"
 }
 
-ReplaceString()
+testReplaceString()
 {
 	local originalString="clean up this lean mess!"
 	local symbolsString="?!#$%&'()=-~^|\@[]{}+;*:<>,./_?"
@@ -759,7 +800,6 @@ testAggregateDirectory()
 	directories=$(aggregateDirectory -vr ./$testDirectory)
 	files=$(aggregateDirectory -vrf ./$testDirectory)
 
-	echo "Someting ${directories[*]}"
 	directories=($directories)
 	assertSame "($BASH_SOURCE:${LINENO}) Directory count not equal to 7." 7 ${#directories[@]}
 	files=($files)
@@ -782,15 +822,15 @@ testAggregateDirectory()
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
-	files=$(aggregateDirectory -vfr -i \.txt ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i "\.txt" ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
-	files=$(aggregateDirectory -vfr -i \.doc ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i "\.doc" ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
-	files=$(aggregateDirectory -vfr -i \.html ./$testDirectory)
+	files=$(aggregateDirectory -vfr -i "\.html" ./$testDirectory)
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
@@ -814,10 +854,10 @@ testAggregateDirectory()
 	files=($files)
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 0." 0 ${#files[@]}
 
-	#complicated regex
-	files=$(aggregateDirectory -vfr -i .*do.*\(file\)\[\d\]\.do.* ./$testDirectory)
+	#complicated regex ".*do.*(file)\[\d]\.do.*"
+	files=$(aggregateDirectory -vfr -i '.*do.*(file)\[[0-9]*]\.do.*' ./$testDirectory)
 	files=($files)
-	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 7." 7 ${#files[@]}
+	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
 	rm -rf ./$testDirectory
 }
@@ -856,7 +896,7 @@ fi
 #───────────────────────────────────────────────────────────────────────────────
 # Function Exports
 #───────────────────────────────────────────────────────────────────────────────
-export -f isInteger
+export -f assertInterger
 export -f displayFunctionSummary
 export -f repeatString
 export -f reverseString
