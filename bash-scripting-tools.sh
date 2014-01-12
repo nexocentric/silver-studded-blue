@@ -201,7 +201,7 @@ done
 
 stringToArray()
 {
-		printf "%s"        "$(echo $1 | sed 's/\(.\)/\1 /g')"
+		printf "%s" "$(echo $1 | sed 's/\(.\)/\1 /g')"
 }
 
 displayFunctionSummary()
@@ -421,6 +421,25 @@ aggregateDirectory()
 # [parameters]
 # [return]
 #===========================================================
+regexSafeString()
+{
+	if [[ $# -ne 1 ]]; then
+		return
+	fi
+	local originalString="$1"
+
+	#clean for basic regular expression
+	originalString=${originalString//\\/\\\\}
+	originalString=${originalString//$/\\$}
+	originalString=${originalString//./\\.}
+	originalString=${originalString//\*/\\\*}
+	originalString=${originalString//[/\\[}
+	originalString=${originalString//]/\\]}
+	originalString=${originalString//^/\\^}
+
+	printf "%s" "${originalString}"
+}
+
 replaceString()
 {
 		#getopts settings
@@ -507,6 +526,7 @@ replaceString()
 		fi
 		originalString=$1
 		originalString=${originalString// /$SPACE_PLACEHOLDER}
+		#clear string for sed
 
 		displayVerboseInformation \
 				"Searching [${originalString//$SPACE_PLACEHOLDER/ }] " \
@@ -532,16 +552,18 @@ replaceString()
 				fi
 		fi
 
-		#
-
 		#replacement loop
 		if [[ -z "${WHOLE_WORD_REPLACE}" ]]; then
 				processingString="${originalString}"
 				searchCharacters=$(stringToArray "${searchString}")
-				for character in $searchCharacters; do
+				for searchCharacter in $searchCharacters; do
+						searchCharacter=$(regexSafeString "${searchCharacter}")
+						searchCharacter="${searchCharacter////\/}"
+						replacementCharacter="${replacementString:$nextReplacementCharacter:1}"
+						replacementCharacter="${replacementCharacter////\/}"
 						processingString=$( \
 								printf "%s" "${processingString}" | \
-								sed "s/${character}/${replacementString:$nextReplacementCharacter:1}/${REPLACE_ALL_MATCHING}" \
+								sed "s/${searchCharacter}/${replacementCharacter}/${REPLACE_ALL_MATCHING}" \
 						)
 						if [[ $nextReplacementCharacter -eq $((${#replacementString} - 1)) ]]; then #change this to -gt ${#replacementString} for meeting on the 15th
 								nextReplacementCharacter=0
@@ -551,6 +573,11 @@ replaceString()
 				done
 				processedString="${processingString}"
 		else
+				searchString=$(regexSafeString "${searchString}")
+				searchString="${searchString////\/}"
+				replacementString=$(regexSafeString "${replacementString}")
+				replacementString="${replacementString////\/}"
+				displayVerboseInformation "STRING FOR SED:[s/${searchString}/${replacementString}/${REPLACE_ALL_MATCHING}]"
 				processedString=$( \
 						printf "%s" "${originalString}" | \
 						sed "s/${searchString}/${replacementString}/${REPLACE_ALL_MATCHING}" \
@@ -643,71 +670,91 @@ displayDynamicTable()
 #───────────────────────────────────────────────────────────────────────────────
 if [[ $SCRIPT_SELF_TEST_MODE -eq 1 ]]; then
 
+#variables for testing
+
+
 testRepeatString()
 {
 		local repeatStringError=$(repeatString "a")
-		assertNull "The repeat string function should have failed." "${repeatStringError}"
+		assertNull "($BASH_SOURCE:${LINENO}) The repeat string function should have failed." "${repeatStringError}"
 
 		repeatStringError=$(repeatString "a" -1)
-		assertNull "The repeat string function should have failed." "${repeatStringError}"
+		assertNull "($BASH_SOURCE:${LINENO}) The repeat string function should have failed." "${repeatStringError}"
 		
 		local sixCharacterString=$(repeatString "a" 6)
-		assertSame "Failed to repeat the character 'a' 6 times." "aaaaaa" "${sixCharacterString}"
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to repeat the character 'a' 6 times." "aaaaaa" "${sixCharacterString}"
 		
 		local popLyrics="$(repeatString 'Womanizer, ' 2)Womanizer"
-		assertSame "Failed to duplicate pop lyrics." "Womanizer, Womanizer, Womanizer" "${popLyrics}"
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to duplicate pop lyrics." "Womanizer, Womanizer, Womanizer" "${popLyrics}"
 }
 
 testReplaceString()
 {
 		local originalString="clean up this lean mess!"
+		local symbolsString="?!#$%&'()=-~^|\@[]{}+;*:<>,./_?"
 		local replacedString=""
 
 		#help displayed
 		replacedString=$(replaceString -hv)
-		assertSame "Failed to display help." 0 $?
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to display help." 0 $?
 
 		#insufficient parameters
 		replacedString=$(replaceString -v "${originalString}")
-		assertNull "Failed to return null string." "${replacedString}"
+		assertNull "($BASH_SOURCE:${LINENO}) Failed to return null string." "${replacedString}"
 
 		#character replacement single
 		replacedString=$(replaceString -vcf "${originalString}" "c")
-		assertSame "Failed to replace first matching character in string." "lean up this lean mess!" "${replacedString}"
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace first matching character in string." "lean up this lean mess!" "${replacedString}"
 
 		#multiple character replacement single
 		replacedString=$(replaceString -vcf "${originalString}" "cup ")
-		assertSame "Failed to replace first matching character in string." "lean this lean mess!" "${replacedString}"
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace first matching character in string." "lean this lean mess!" "${replacedString}"
 
 		#multiple character replacement all
 		replacedString=$(replaceString -vc "${originalString}" "ethsm")
-		assertSame "Failed to replace all matching characters in string." "clan up i lan !" "${replacedString}"
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching characters in string." "clan up i lan !" "${replacedString}"
 
-		#multiple character replacement all
+		#multiple character replacement single
 		replacedString=$(replaceString -vcf "${originalString}" "isss" "at")
-		assertSame "Failed to replace single matching characters in string." "clean up that lean meat!" "${replacedString}"
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace single matching characters in string." "clean up that lean meat!" "${replacedString}"
 
 		#multiple character single from tail
 		replacedString=$(replaceString -vcft "${originalString}" "ss" "at")
-		assertSame "Failed to replace single matching characters in string from tail." "clean up this lean meat!" "${replacedString}"
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace single matching characters in string from tail." "clean up this lean meat!" "${replacedString}"
+
+		#multiple special character replacement single
+		replacedString=$(replaceString -vcf "${symbolsString}" "?{}")
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "!#$%&'()=-~^|\@[]+;*:<>,./_?" "${replacedString}"
+
+		#multiple special character replacement single from tail
+		replacedString=$(replaceString -vcft "${symbolsString}" "?[]")
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "?!#$%&'()=-~^|\@{}+;*:<>,./_" "${replacedString}"
 
 		#full word replacement single
 		replacedString=$(replaceString -vf "${originalString}" "clean" "beam")
-		assertSame "Failed to replace first matching whole word in string." "beam up this lean mess!" "${replacedString}"
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace first matching whole word in string." "beam up this lean mess!" "${replacedString}"
 
 		#full word replacement all
-		replacedString=$(replaceString "${originalString}" "lean ")
-		assertSame "Failed to replace all matching whole words in string." "cup this mess!" "${replacedString}"
+		replacedString=$(replaceString -v "${originalString}" "lean ")
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "cup this mess!" "${replacedString}"
 
 		#full word replacement single from tail
 		replacedString=$(replaceString -vft "${originalString}" "lean ")
-		assertSame "Failed to replace all matching whole words in string." "clean up this mess!" "${replacedString}"
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "clean up this mess!" "${replacedString}"
+
+		#full word special characters
+		replacedString=$(replaceString -v "${symbolsString}" "()=-~^|\@[]{}")
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "?!#$%&'+;*:<>,./_?" "${replacedString}"
+
+		#full word special characters from tail
+		replacedString=$(replaceString -vt "${symbolsString}" ",./_?")
+		assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "?!#$%&'()=-~^|\@[]{}+;*:<>" "${replacedString}"
 }
 
 testAggregateDirectory()
 {
 		local testDirectory="supercalifragilisticexpialidocious"
-		mkdir -p ./$testDirectory/super/cali/fragilistic/expi/ali/docious
+		mkdir -p ./$testDirectory/super/cali/fragi/listic/expi/ali/docious
 
 		local directories=$(aggregateDirectory -vr ./$testDirectory)
 		local files=
@@ -724,9 +771,9 @@ testAggregateDirectory()
 
 		echo "Someting ${directories[*]}"
 		directories=($directories)
-		assertSame "Directory count not equal to 6." 6 ${#directories[@]}
+		assertSame "($BASH_SOURCE:${LINENO}) Directory count not equal to 7." 7 ${#directories[@]}
 		files=($files)
-		assertSame "File count not equal to 12." 12 ${#files[@]}
+		assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
 		directories=$(aggregateDirectory -v ./$testDirectory)
 		directories=($directories)
@@ -734,13 +781,24 @@ testAggregateDirectory()
 
 		files=$(aggregateDirectory -vfri "2" ./$testDirectory)
 		files=($files)
-		assertSame "File count not equal to 6." 6 ${#files[@]}
+		assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 6." 6 ${#files[@]}
 
 		files=$(aggregateDirectory -vfri "2" -i "1" ./$testDirectory)
 		files=($files)
-		assertSame "File count not equal to 0." 0 ${#files[@]}
+		assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 0." 0 ${#files[@]}
 
 		rm -rf ./$testDirectory
+}
+
+oneTimeSetUp()
+{
+	printf "Running tests on: %s" "${SCRIPT_NAME}"
+	printf "Located in      : %s" "${BASH_SOURCE}"
+}
+
+tearDown()
+{
+	printf "$(repeatString "==" 20)\n\n\n"
 }
 
 #this is an xUnit family testing framework for shell files
@@ -748,8 +806,10 @@ if [[ ! -d "./shunit2-2.0.3" ]]; then
 	printf "Downloading test tools for this environment."
 	curl -L "http://downloads.sourceforge.net/shunit2/shunit2-2.0.3.tgz" | tar zx
 	. shunit2-2.0.3/src/shell/shunit2
+	#in an environment where i can't leave testing tools lying around
 	rm -rf "./shunit2-2.0.3"
 else
+	#this is probably a development environment
 	. shunit2-2.0.3/src/shell/shunit2
 fi
 
