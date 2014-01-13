@@ -54,9 +54,16 @@ SCRIPT_HEADER
 #===========================================================
 displayVerboseInformation()
 {
+	#safety check
 	if [[ $# -lt 1 ]]; then
 		return
 	fi
+
+	#verbose flag checks
+	if [[ $# -lt 2 ]] && [[ $SCRIPT_VERBOSE_MODE -eq 0 ]]; then
+		return
+	fi
+
 	printf "%s\n" "$*" >&2
 }
 
@@ -99,7 +106,6 @@ FUNCTION LIST
 
 	stringToArray
 	assertInterger
-	displayFunctionSummary
 	repeatString
 	reverseString
 	replaceString
@@ -375,7 +381,7 @@ aggregateDirectory()
 	directory=$1
 	displayVerboseInformation "Ignoring the following regex: ${IGNORED_PATH_LIST[*]}"
 	for path in "$directory/"*; do
-
+		statusSpinner "Scanning $directory "
 		displayVerboseInformation "Processing [$path]"
 		if [[ -n "${IGNORED_PATH_LIST[0]}" ]]; then
 
@@ -469,6 +475,7 @@ replaceString()
 	local OPTIND
 	local FUNCTION_OPTION_FLAGS="cfhn:tv"
 	local FUNCTION_USAGE="${FUNCNAME[0]} -${FUNCTION_OPTION_FLAGS} STRING SEARCH-STRING [REPLACEMENT STRING]"
+	set -f
 
 	#function constants
 	local HEAD_REPLACE=1
@@ -557,8 +564,8 @@ replaceString()
 		"for [${searchString//$SPACE_PLACEHOLDER/ }] and replacing " \
 		"from [${replacementString//$SPACE_PLACEHOLDER/ }]."
 	displayVerboseInformation "[Settings]"
-	displayVerboseInformation "Character replace : " \
-	displayVerboseInformation "Replace from tail : " \
+	displayVerboseInformation "Character replace : " 
+	displayVerboseInformation "Replace from tail : " " "
 	displayVerboseInformation "First match replace: "
 	displayVerboseInformation ""
 
@@ -585,6 +592,7 @@ replaceString()
 			searchCharacter="${searchCharacter////\/}"
 			replacementCharacter="${replacementString:$nextReplacementCharacter:1}"
 			replacementCharacter="${replacementCharacter////\/}"
+			displayVerboseInformation $(printf "Replace[%s]<=>[%s]\n" "${searchCharacter}" "${replacementCharacter}") " "
 			processingString=$( \
 				printf "%s" "${processingString}" | \
 				sed "s/${searchCharacter}/${replacementCharacter}/${REPLACE_ALL_MATCHING}" \
@@ -663,46 +671,87 @@ repeatString()
 	printf "%s" "${generatedString}"
 }
 
-# dynamicVariable()
-# {
-#         local OPTIND
-#         local FUNCTION_OPTION_FLAGS="ah"
-#         local functionOption=
-#         local declareArray=
-#         local variableName=
-#         local variableValue=
+statusSpinner()
+{
+    local spinnerMessage="$1"
+    #had to do this to prevent the printf error
+    local spinnerStates=("-" "\\" "|" "/")
+    local maximumSpinnerStates=${#spinnerStates[@]}
+    local spinnerStatePrefix="${BASH_SOURCE[0]}"
+    local nextSpinnerState=
+    currentSpinnerState= #this should not be local
 
-#         #clean variable name and variable
-#         variableName=$(replaceCharacters $variableName )
-#         variableValue=$(replaceCharacters $variableName )
-#         while getopts $FUNCTION_OPTION_FLAGS functionOption; do
-#                 case "${functionOption}" in
-#                         # turn on self testing
-#                         a )
-#                                 SCRIPT_SELF_TEST_MODE=1
-#                                 break
-#                         ;;
-#                         # display the script usage menu on help or invalid argments
-#                         h )
-#                                 displayScriptUsage
-#                                 cleanUp 1
-#                                 exit
-#                         ;;
-#                 esac
-#         done        
-		
-#         if [[ -n $declareArray ]]; then
-				
-#         fi
-		
-#         if [[]]; then
-#                 declare $declareArray "${variableName}"="${variableValue}"
-#         else
-		
-#         fi
-		
-#         return 0
-# }
+    if [[ -z $currentSpinnerState ]]; then
+        currentSpinnerState="${spinnerStates[0]}"
+    fi
+
+    for (( spinnerState=0; spinnerState<maximumSpinnerStates; spinnerState++ )); do
+        nextSpinnerState="${spinnerStates[$spinnerState]}"
+        if [[ "$currentSpinnerState" = "$nextSpinnerState" ]]; then
+            local statesMax=$((maximumSpinnerStates - 1))
+            if [[ $spinnerState -eq $statesMax ]]; then
+                currentSpinnerState="${spinnerStates[0]}"
+            else
+                spinnerState=$((spinnerState + 1))
+                currentSpinnerState="${spinnerStates[$spinnerState]}"
+            fi
+            break
+        fi
+    done
+
+    printf "%s%s\r" $spinnerMessage $currentSpinnerState >&2
+}
+
+dynamicVariable()
+{
+	local OPTIND
+	local FUNCTION_OPTION_FLAGS="hv"
+	local functionOption=
+	local declareArray=
+	local variableName= #not local for a reason
+	local variableValue=
+
+	#clean variable name and variable
+	#variableName=$(replaceCharacters $variableName )
+	#variableValue=$(replaceCharacters $variableName )
+	# while getopts $FUNCTION_OPTION_FLAGS functionOption; do
+	#         case "${functionOption}" in
+	#                 # turn on self testing
+	#                 h )
+	#                         SCRIPT_SELF_TEST_MODE=1
+	#                         break
+	#                 ;;
+	#                 # display the script usage menu on help or invalid argments
+	#                 v )
+	#                         displayScriptUsage
+	#                         cleanUp 1
+	#                         exit
+	#                 ;;
+	#         esac
+	# done        
+	
+	variableName=$(replaceString -c $1 "!#$%&'()=-~^|\@[]{}+;*:<>,./?" "_")
+	displayVerboseInformation "In function $variableName"
+	variableValue="$2"
+	
+
+	displayVerboseInformation "After declaration"
+	eval ${variableName}="${variableValue}"
+	displayVerboseInformation ${!variableName}
+	displayVerboseInformation $variableName
+	
+
+	if [[ "${variableValue}" != "${!variableName}" ]]; then
+		displayVerboseInformation "Unable to set variable"
+		return 1
+	fi
+	return 0
+}
+
+directoryMonitor()
+{
+	return
+}
 
 #───────────────────────────────────────────────────────────────────────────────
 # Function Test
@@ -768,6 +817,10 @@ testReplaceString()
 	#multiple special character replacement single from tail
 	replacedString=$(replaceString -vcft "${symbolsString}" "?[]")
 	assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "?!#$%&'()=-~^|\@{}+;*:<>,./_" "${replacedString}"
+
+	#multiple special character replacement single from tail
+	replacedString=$(replaceString -vc "${symbolsString}" "*")
+	assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "?!#$%&'()=-~^|\@[]{}+;:<>,./_?" "${replacedString}"
 
 	#full word replacement single
 	replacedString=$(replaceString -vf "${originalString}" "clean" "beam")
@@ -869,6 +922,29 @@ testAggregateDirectory()
 	assertSame "($BASH_SOURCE:${LINENO}) File count not equal to 14." 14 ${#files[@]}
 
 	rm -rf ./$testDirectory
+}
+
+testDynamicVariable()
+{
+	local variableName=
+	local variableValue=
+	local dynamicVariableValue=
+	local symbolsString="?!#()=-|\[]{}+;*:<>./_?"
+
+	variableName="supercalifragilisticexpialidocious"
+	variableValue=10
+	echo $variableName
+	dynamicVariable "${variableName}" "${variableValue}"
+	dynamicVariableValue=${!variableName}
+	assertSame "($BASH_SOURCE:${LINENO}) Dynamically set variable not equal to ${variableValue}." "${variableValue}" "${dynamicVariableValue}"
+
+	variableName="s${symbolsString}s"
+	variableValue=50
+	echo $variableName
+	dynamicVariable "${variableName}" "${variableValue}"
+	variableName=$(replaceString -c "${variableName}" "${symbolsString}" "_")
+	dynamicVariableValue=${!variableName}
+	assertSame "($BASH_SOURCE:${LINENO}) Dynamically set variable not equal to ${variableValue}." "${variableValue}" "${dynamicVariableValue}"
 }
 
 oneTimeSetUp()
