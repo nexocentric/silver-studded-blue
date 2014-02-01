@@ -282,6 +282,18 @@ reverseString()
 # [parameters]
 # [return]
 #===========================================================
+getUserInput()
+{
+	return 0
+}
+
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 assertInterger()
 {
 	if [[ $# -lt 1 ]]; then
@@ -671,9 +683,19 @@ repeatString()
 	printf "%s" "${generatedString}"
 }
 
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 statusSpinner()
 {
-    local spinnerMessage="$1"
+    local spinnerMessage=
+    if [[ $# -gt 1 ]]; then
+    	spinnerMessage="$1"
+    fi
     #had to do this to prevent the printf error
     local spinnerStates=("-" "\\" "|" "/")
     local maximumSpinnerStates=${#spinnerStates[@]}
@@ -699,9 +721,17 @@ statusSpinner()
         fi
     done
 
+    export currentSpinnerState="${currentSpinnerState}"
     printf "%s%s\r" $spinnerMessage $currentSpinnerState >&2
 }
 
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 dynamicVariable()
 {
 	local OPTIND
@@ -732,8 +762,14 @@ dynamicVariable()
 	
 	variableName=$(replaceString -c $1 "!#$%&'()=-~^|\@[]{}+;*:<>,./?" "_")
 	displayVerboseInformation "In function $variableName"
-	variableValue="$2"
-	
+
+	if [[ $# -eq 1 ]]; then
+		printf "%s" "${variableName}"
+		return
+	else
+		variableValue="$2"
+	fi
+
 
 	displayVerboseInformation "After declaration"
 	eval ${variableName}="${variableValue}"
@@ -748,9 +784,128 @@ dynamicVariable()
 	return 0
 }
 
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
 directoryMonitor()
 {
-	return
+	#getopts settings
+	local OPTIND
+	local FUNCTION_OPTION_FLAGS="fi:Rrv"
+	
+	#function settings
+	local FUNCTION_USAGE="${FUNCNAME[0]} -${FUNCTION_OPTION_FLAGS} FOLDER PATH"
+	local GLOBIGNORE=.:..
+	local RECURSIVE_MODE=
+	local DIRECTORY_MODE=
+	local FILE_MODE=
+	local IGNORED_PATH_LIST=
+
+	#function variables
+	local aggregatedContents=
+	local directory=
+	local directories=
+	local directoryCount=
+	local functionOptionFlags=
+	local functionOptionFlagsWithArguments= #remove the function and rename to optionFlagsWithArguments
+	local file=
+	local files=
+	local fileCount=
+	local path=
+	local updated=
+	local variableName=
+
+	displayVerboseInformation "These are the passed parameters for this function [$*]"
+	#parse get opts
+	while getopts $FUNCTION_OPTION_FLAGS functionOption; do
+		case "${functionOption}" in
+			d )
+				DIRECTORY_MODE=""
+				functionOptionFlags="${functionOptionFlags}${functionOption}"
+			;;
+			f )
+				FILE_MODE="files"
+				functionOptionFlags="${functionOptionFlags}${functionOption}"
+			;;
+			# display the script usage menu on help or invalid argments
+			h )
+				displayVerboseInformation "Function usage:"
+				displayVerboseInformation "${FUNCTION_USAGE}"
+				return 0
+			;;
+			i )
+				IGNORED_PATH_LIST=(${IGNORED_PATH_LIST[@]} ${OPTARG})
+				displayVerboseInformation "Regex [${OPTARG}] added to ignore list"
+				displayVerboseInformation "Ignore list is now [${IGNORED_PATH_LIST[*]}]"
+				functionOptionFlagsWithArguments="${functionOptionFlagsWithArguments}-${functionOption} ${OPTARG} "
+			;;
+			#parse the directory recursively
+			R | r )
+				#displayVerboseInformation "Replacement by individually matching characters has been set."
+				RECURSIVE_MODE=1
+				functionOptionFlags="${functionOptionFlags}${functionOption}"
+				#echo "$functionOptionFlags"
+			;;
+			#display verbose information
+			v )
+				displayVerboseInformation "Verbose mode has been enabled."
+				functionOptionFlags="${functionOptionFlags}${functionOption}"
+			;;
+			\? )
+				displayVerboseInformation "-%s is an invalid option. \nPlease use the -h flag to display usage information.\n"
+				#return 1
+			;;
+		esac	
+	done
+	#remove the options that were parsed
+	shift $((OPTIND-1))
+	
+	directory="$1"
+	if [[ ! -d "${directory}" ]]; then
+		return
+	fi
+	
+	#arrange options flags for next run so that it can run smoothly
+	if [[ -n "${functionOptionFlags}" ]]; then
+		functionOptionFlags="-${functionOptionFlags} "
+	fi
+
+	if [[ -n "${functionOptionFlagsWithArguments}" ]]; then
+		#the space at the beginning of this string is needed
+		functionOptionFlagsWithArguments="${functionOptionFlagsWithArguments}"
+	fi
+	functionOptionFlags="${functionOptionFlags}${functionOptionFlagsWithArguments}"
+	displayVerboseInformation "Flags for the next run ${functionOptionFlags}"
+
+	#begin monitoring
+	while :; do
+		#set the modes for monitoring
+		if [[ -n "${updated}" ]]; then
+			files=$(aggregateDirectory "${functionOptionFlags}" "${directory}")
+			#all updates have been reported
+			updated=
+		fi
+
+		for file in "${files[@]}"; do
+			variableName=$(dynamicVariable "$(basename "${file}")")
+			if [[ $? -ne 0 ]]; then
+				dynamicVariable "$(basename "${file}")" "$(stat --format=%Y ${file})"
+			else
+				if [[ "${!variableName}" != "$(stat --format=%Y ${file})" ]]; then
+					updated="${file}"
+				fi
+			fi
+		done
+
+		if [[ -n "${updated}" ]]; then
+			printf "%s" "${updated}"
+			return
+		fi
+	done
 }
 
 #───────────────────────────────────────────────────────────────────────────────
@@ -759,9 +914,36 @@ directoryMonitor()
 if [[ $SCRIPT_SELF_TEST_MODE -eq 1 ]]; then
 
 #variables for testing
+testStatusSpinner()
+{
+	local lastSpinnerState=
 
+	while true; do
+		statusSpinner
+		sleep 1
+	done
+	#start spinning
+	# statusSpinner
 
-testRepeatString()
+	# #
+	# lastSpinnerState="${currentSpinnerState}"
+	# statusSpinner
+	# assertNotSame "($BASH_SOURCE:${LINENO}) Spinner failed to complete revolution." "${currentSpinnerState}" "${lastSpinnerState}"
+
+	# lastSpinnerState="${currentSpinnerState}"
+	# statusSpinner
+	# assertNotSame "($BASH_SOURCE:${LINENO}) Spinner failed to complete revolution." "${currentSpinnerState}" "${lastSpinnerState}"
+
+	# lastSpinnerState="${currentSpinnerState}"
+	# statusSpinner
+	# assertNotSame "($BASH_SOURCE:${LINENO}) Spinner failed to complete revolution." "${currentSpinnerState}" "${lastSpinnerState}"
+
+	# lastSpinnerState="${currentSpinnerState}"
+	# statusSpinner
+	# assertNotSame "($BASH_SOURCE:${LINENO}) Spinner failed to complete revolution." "${currentSpinnerState}" "${lastSpinnerState}"
+}
+
+RepeatString()
 {
 	local repeatStringError=$(repeatString "a")
 	assertNull "($BASH_SOURCE:${LINENO}) The repeat string function should have failed." "${repeatStringError}"
@@ -776,7 +958,7 @@ testRepeatString()
 	assertSame "($BASH_SOURCE:${LINENO}) Failed to duplicate pop lyrics." "Womanizer, Womanizer, Womanizer" "${popLyrics}"
 }
 
-testReplaceString()
+ReplaceString()
 {
 	local originalString="clean up this lean mess!"
 	local symbolsString="?!#$%&'()=-~^|\@[]{}+;*:<>,./_?"
@@ -843,7 +1025,7 @@ testReplaceString()
 	assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "?!#$%&'()=-~^|\@[]{}+;*:<>" "${replacedString}"
 }
 
-testAggregateDirectory()
+AggregateDirectory()
 {
 	local testDirectory="supercalifragilisticexpialidocious"
 	mkdir -p ./$testDirectory/super/cali/fragi/listic/expi/ali/docious
@@ -924,7 +1106,7 @@ testAggregateDirectory()
 	rm -rf ./$testDirectory
 }
 
-testDynamicVariable()
+DynamicVariable()
 {
 	local variableName=
 	local variableValue=
