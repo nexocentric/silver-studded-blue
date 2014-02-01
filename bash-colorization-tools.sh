@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #script variables
 a0=(0 "name" "#000000")
@@ -321,7 +321,7 @@ colorizeBackground()
 }
 
 for colorInformation in ${colorList[@]}; do
-	colorCode=${!colorInformation}
+	eval colorCode=\$${colorInformation}
 	eval colorName=\${${colorInformation}[2]}
 	colorSpectrum=$(colorizeBackground $colorCode $colorName)
 	printf "${colorSpectrum}"
