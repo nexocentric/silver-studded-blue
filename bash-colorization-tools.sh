@@ -316,24 +316,25 @@ COLOR_BACKGROUND_CODE=48
 formatText()
 {
 	#declarations
-	local formattingCodes=
 	local formattedString="$1"
-	local resetFormatting="$3"
-
+	local formattingCodes=
+	
 	#parse list of formatting codes
 	for code in "$@"; do
 		if [[ "$code" = "$formattedString" ]]; then
 			#this is the string we want to format, so we don't need it
 			continue
 		fi
-			#
-			if [[ -z $formattingCodes ]]; then
-				formattingCodes="${code}"
-			else
-				formattingCodes="${formattingCodes};${code}"
-			fi
+		
+		#
+		if [[ -z $formattingCodes ]]; then
+			formattingCodes="${code}"
+		else
+			formattingCodes="${formattingCodes};${code}"
+		fi
 	done
 
+	#
 	formattedString="\e[${formattingCodes}m${formattedString}"
 	if [[ -z "$resetFormatting" ]]; then
 		formattedString="${formattedString}\e[2${formattingCodes}m"
@@ -386,15 +387,84 @@ colorizeBackground()
 # 	printf "\n"
 # done
 
+escapeBraces()
+{
+	local string="${1}"
+	string=${string//\{/\\\{}
+	string=${string//\}/\\\}}
+	printf "%s" "$string"
+}
+
+insertFormattingCode()
+{
+	local string="${1}"
+	local tag="<t>"
+	local formattingCodeString="${2}"
+	local formatting=""
+	local backgroundColorization=""
+	local textColorization=""
+	local formatted="^[\\]e\[[124578]{0,1}[;|m]"
+	local backgroundColorized="48;5;[0-9]{1,3}[;|m]"
+	local textColorized="38;5;[0-9]{1,3}m"
+	local formatCapture="\(${formatted}\)\(${backgroundColorized}\)\(${textColorized}\)"
+
+	#
+	if [[ "${string}" =~ $formatted ]]; then
+		formatting="\1"
+		echo "formatted!"
+	fi
+
+	#
+	if [[ "${string}" =~ $backgroundColorized ]]; then
+		backgroundColorization="\2"
+		echo "background colorized!"
+	fi
+
+	#
+	if [[ "${string}" =~ $textColorized ]]; then	
+		textColorization="\3"
+		echo "text colorized!"
+	fi
+
+	#
+	formatted=$(escapeBraces ${formatted})
+	backgroundColorized=$(escapeBraces ${backgroundColorized})
+	textColorized=$(escapeBraces ${textColorized})
+	
+	#
+	if [[ "${formattingCodeString}" =~ $formatted ]]; then
+		string=$( \
+		echo "${string}" | \
+		sed "s/\(${formatted}\)\(${backgroundColorized}\)\(${textColorized}\)/\1\2$tag\3/g" \
+	)
+	elif [[ "${formattingCodeString}" =~ $backgroundColorized ]]; then
+		string=$( \
+		echo "${string}" | \
+		sed "s/\(${formatted}\)\(${backgroundColorized}\)\(${textColorized}\)/\1\2$tag\3/g" \
+	)
+	elif [[ "${formattingCodeString}" =~ $textColorized ]]; then
+		string=$( \
+		echo "${string}" | \
+		sed "s/\(${formatted}\)\(${backgroundColorized}\)\(${textColorized}\)/\1\2$tag\3/g" \
+	)
+	fi
+
+	#
+	printf "%s\n\n" ${string//$tag/$formattingCodeString}
+}
+
 openEscapeSequence()
 {
 	local string="${1}"
 	local escapeSequenceRegex="^[\\]e\[[0-9\;]*m"
 
+	#check to make sure that the string isn't already escaped
 	if [[ "${string}" =~ $escapeSequenceRegex ]]; then
-		echo "${string}"
+		#keep it D.R.Y.
+		printf "%s" "${string}"
 	else
-		echo "${FORMATTING_ESCAPE_SEQUENCE}${string}"
+		#hasn't been escaped, so add the code
+		printf "%s" "${FORMATTING_ESCAPE_SEQUENCE}${string}"
 	fi
 }
 
@@ -403,7 +473,7 @@ openEscapeSequence()
 #───────────────────────────────────────────────────────────────────────────────
 if [[ $SCRIPT_SELF_TEST_MODE -eq 1 ]]; then
 
-testOpenEscapeSequence()
+OpenEscapeSequence()
 {
 	local originalString="supercalifragilisticexpialidocious"
 	local returnedString=
@@ -440,7 +510,6 @@ testOpenEscapeSequence()
 		"${returnedString}"
 }
 
-
 oneTimeSetUp()
 {
 	printf "Running tests on: %s" "${SCRIPT_NAME}"
@@ -465,9 +534,13 @@ else
 fi
 
 fi
-openEscapeSequence "yes"
 
-openEscapeSequence $(openEscapeSequence "yes")
+
+insertFormattingCode "\\e[1mhello" "a"
+insertFormattingCode "\\e[1;48;5;10;38;5;128mhello" "b"
+insertFormattingCode "\\e[48;5;10mhello" "c"
+insertFormattingCode "\\e[38;5;128mhello" "d"
+insertFormattingCode "\\e[1;38;5;128mhello" "e"
 # for colorInformation in ${colorList[@]}; do
 # 	eval colorCode=\$${colorInformation}
 # 	eval colorName=\${${colorInformation}[$COLOR_NAME]}
