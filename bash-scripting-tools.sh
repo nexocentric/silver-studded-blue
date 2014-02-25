@@ -914,7 +914,7 @@ directoryMonitor()
 if [[ $SCRIPT_SELF_TEST_MODE -eq 1 ]]; then
 
 #variables for testing
-testStatusSpinner()
+StatusSpinner()
 {
 	local lastSpinnerState=
 
@@ -943,7 +943,7 @@ testStatusSpinner()
 	# assertNotSame "($BASH_SOURCE:${LINENO}) Spinner failed to complete revolution." "${currentSpinnerState}" "${lastSpinnerState}"
 }
 
-RepeatString()
+testRepeatString()
 {
 	local repeatStringError=$(repeatString "a")
 	assertNull "($BASH_SOURCE:${LINENO}) The repeat string function should have failed." "${repeatStringError}"
@@ -958,7 +958,7 @@ RepeatString()
 	assertSame "($BASH_SOURCE:${LINENO}) Failed to duplicate pop lyrics." "Womanizer, Womanizer, Womanizer" "${popLyrics}"
 }
 
-ReplaceString()
+testReplaceString()
 {
 	local originalString="clean up this lean mess!"
 	local symbolsString="?!#$%&'()=-~^|\@[]{}+;*:<>,./_?"
@@ -1025,7 +1025,7 @@ ReplaceString()
 	assertSame "($BASH_SOURCE:${LINENO}) Failed to replace all matching whole words in string." "?!#$%&'()=-~^|\@[]{}+;*:<>" "${replacedString}"
 }
 
-AggregateDirectory()
+testAggregateDirectory()
 {
 	local testDirectory="supercalifragilisticexpialidocious"
 	mkdir -p ./$testDirectory/super/cali/fragi/listic/expi/ali/docious
@@ -1106,7 +1106,7 @@ AggregateDirectory()
 	rm -rf ./$testDirectory
 }
 
-DynamicVariable()
+testDynamicVariable()
 {
 	local variableName=
 	local variableValue=
