@@ -557,16 +557,16 @@ tearDown()
 }
 
 #this is an xUnit family testing framework for shell files
-if [[ ! -d "./shunit2-2.0.3" ]]; then
-	printf "Downloading test tools for this environment."
-	curl -L "http://downloads.sourceforge.net/shunit2/shunit2-2.0.3.tgz" | tar zx
-	. shunit2-2.0.3/src/shell/shunit2
-	#in an environment where i can't leave testing tools lying around
-	rm -rf "./shunit2-2.0.3"
-else
-	#this is probably a development environment
-	. shunit2-2.0.3/src/shell/shunit2
-fi
+# if [[ ! -d "./shunit2-2.0.3" ]]; then
+# 	printf "Downloading test tools for this environment."
+# 	curl -L "http://downloads.sourceforge.net/shunit2/shunit2-2.0.3.tgz" | tar zx
+# 	. shunit2-2.0.3/src/shell/shunit2
+# 	#in an environment where i can't leave testing tools lying around
+# 	rm -rf "./shunit2-2.0.3"
+# else
+# 	#this is probably a development environment
+# 	. shunit2-2.0.3/src/shell/shunit2
+# fi
 
 fi
 
