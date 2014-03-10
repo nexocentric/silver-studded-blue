@@ -447,12 +447,12 @@ extractFormattingCodes()
 {
 	local codes="${1}"
 	local extractionRegex="^[\\]e\([124578]{0,1}[;]{0,1}\)\(48;5;[0-9]{1,3}\)\(38;5;[0-9]{1,3}\)m"
-	local extractionRegex=".*\\e\[\([124578;]*\){0,1}\(48;5;[0-9]{1,3}\){0,1}m.*"
+	local extractionRegex=".*\\e\[\([124578;]*\){0,1}\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}\(38;5;[0-9]{1,3}\){0,1}m.*"
 	extractionRegex=$(escapeBraces "${extractionRegex}")
 
 	codes=$( \
 		echo "${codes}" | \
-		sed "s/${extractionRegex}/\1\2/" \
+		sed "s/${extractionRegex}/\1\2\3/" \
 	)
 	printf "%s" "${codes}"
 }
@@ -515,7 +515,7 @@ testOpenEscapeSequence()
 testExtractFormattingCodes()
 {
 	local formatting="2"
-	local background="${COLOR_BACKGROUND_CODE}20"
+	local background="${COLORIZE_BACKGROUND_CODE}20"
 	local foreground="${COLORIZE_FOREGROUND_CODE}137"
 	local openSequence="${OPEN_ESCAPE_SEQUENCE}"
 	local closeSequence="${CLOSE_ESCAPE_SEQUENCE}"
@@ -527,6 +527,20 @@ testExtractFormattingCodes()
 	extractedCode=$(extractFormattingCodes "${testSequence}")
 	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract formatting code." \
 		"${formatting}" \
+		"${extractedCode}"
+
+	#formatting code test
+	testSequence="${openSequence}${background}${closeSequence}super cali fragi listic expi ali docious"
+	extractedCode=$(extractFormattingCodes "${testSequence}")
+	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract background colorization code." \
+		"${background}" \
+		"${extractedCode}"
+
+	#formatting code test
+	testSequence="${openSequence}${foreground}${closeSequence}super cali fragi listic expi ali docious"
+	extractedCode=$(extractFormattingCodes "${testSequence}")
+	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract foreground colorization code." \
+		"${foreground}" \
 		"${extractedCode}"
 
 }
