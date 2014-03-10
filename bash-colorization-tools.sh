@@ -519,6 +519,7 @@ testExtractFormattingCodes()
 	local foreground="${COLORIZE_FOREGROUND_CODE}137"
 	local openSequence="${OPEN_ESCAPE_SEQUENCE}"
 	local closeSequence="${CLOSE_ESCAPE_SEQUENCE}"
+	local separator="${CODE_SEPARATOR}"
 	local testSequence=
 	local extractedCode=
 
@@ -529,18 +530,25 @@ testExtractFormattingCodes()
 		"${formatting}" \
 		"${extractedCode}"
 
-	#formatting code test
+	#background code test
 	testSequence="${openSequence}${background}${closeSequence}super cali fragi listic expi ali docious"
 	extractedCode=$(extractFormattingCodes "${testSequence}")
 	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract background colorization code." \
 		"${background}" \
 		"${extractedCode}"
 
-	#formatting code test
+	#foreground code test
 	testSequence="${openSequence}${foreground}${closeSequence}super cali fragi listic expi ali docious"
 	extractedCode=$(extractFormattingCodes "${testSequence}")
 	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract foreground colorization code." \
 		"${foreground}" \
+		"${extractedCode}"
+	
+	#formatting and foreground code test
+	testSequence="${openSequence}${formatting}${separator}${foreground}${closeSequence}super cali fragi listic expi ali docious"
+	extractedCode=$(extractFormattingCodes "${testSequence}")
+	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract formatting and foreground colorization code." \
+		"${formatting}${separator}${foreground}" \
 		"${extractedCode}"
 
 }
