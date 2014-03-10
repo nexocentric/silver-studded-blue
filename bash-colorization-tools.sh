@@ -446,10 +446,10 @@ closeEscapeSequence()
 extractFormattingCodes()
 {
 	local codes="${1}"
-	local extractionRegex="^[\\]e\([124578]{0,1}[;]{0,1}\)\(48;5;[0-9]{1,3}\)\(38;5;[0-9]{1,3}\)m"
-	local extractionRegex=".*\\e\[\([124578;]*\){0,1}\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}\(38;5;[0-9]{1,3}\){0,1}m.*"
+	local extractionRegex="^[\\]e\[\([124578;]*\){0,1}\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}\(38;5;[0-9]{1,3}\){0,1}m.*"
 	extractionRegex=$(escapeBraces "${extractionRegex}")
 
+	#remove only the codes
 	codes=$( \
 		echo "${codes}" | \
 		sed "s/${extractionRegex}/\1\2\3/" \
@@ -457,15 +457,42 @@ extractFormattingCodes()
 	printf "%s" "${codes}"
 }
 
+extractString()
+{
+	local string="${1}"
+	local extractionRegex="^[\\]e\[[124578;]*{0,1}48;5;[0-9]{1,3}[;]{0,1}{0,1}38;5;[0-9]{1,3}{0,1}m\(.*\)"
+	extractionRegex=$(escapeBraces "${extractionRegex}")
+
+	#remove only the string
+	string=$( \
+		echo "${string}" | \
+		sed "s/${extractionRegex}/\1/" \
+	)
+	printf "%s" "${string}"
+}
+
 insertFormattingCode()
 {
 	local string="${1}"
-	local tag="<t>"
-	local formattingCodeString="${2}"
+	local newFormattingCode="${2}"
+	local oldFormattingCode=$(extractFormattingCodes "${string}")
+	local formattingRegex="\([124578;]*\){0,1}"
+	local backgroundRegex="\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}"
+	local foregroundRegex="\(38;5;[0-9]{1,3}\){0,1}"
+	local regexList=($formattingRegex $backgroundRegex $foregroundRegex)
+	local regexCount=
+	local testRegex=
+	local match=
+	local newCode=
 
+	string=$(extractString "${string}")
 
-	
-
+	regexCount=$regexList[@]
+	for (( regex = 0; regex < regexCount; regex++ )); do
+		testRegex="${regexList[$regex]}"
+		match=$(echo "${newFormattingCode}" | sed "s/${testRegex}/\1/")
+		newCode="${newCode}${regexList[$regex]};"
+	done
 
 	printf "%s\n\n" ${string//$tag/$formattingCodeString}
 }
@@ -547,10 +574,16 @@ testExtractFormattingCodes()
 	#formatting and foreground code test
 	testSequence="${openSequence}${formatting}${separator}${foreground}${closeSequence}super cali fragi listic expi ali docious"
 	extractedCode=$(extractFormattingCodes "${testSequence}")
-	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract formatting and foreground colorization code." \
+	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract formatting and foreground colorization codes." \
 		"${formatting}${separator}${foreground}" \
 		"${extractedCode}"
 
+	#formatting and foreground code test
+	testSequence="${openSequence}${formatting}${separator}${background}${separator}${foreground}${closeSequence}super cali fragi listic expi ali docious"
+	extractedCode=$(extractFormattingCodes "${testSequence}")
+	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract all codes." \
+		"${formatting}${separator}${background}${separator}${foreground}" \
+		"${extractedCode}"
 }
 
 oneTimeSetUp()
