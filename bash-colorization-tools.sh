@@ -127,8 +127,8 @@ DARK_AQUAMARINE=(79 "DARK_AQUAMARINE" "#5fd7af" "Blue")
 MEDIUM_TURQUOISE=(80 "MEDIUM_TURQUOISE" "#5fd7d7" "Blue")
 MAYA_BLUE=(81 "MAYA_BLUE" "#5fd7ff" "Blue")
 LIGHT_GREEN=(82 "LIGHT_GREEN" "#5fff00" "Green")
-BRIGHT_GREEN=(83 "Screamin' Green" "#5fff5f" "Green")
-SCREAMIN_GREEN=(84 "Screamin' Green" "#5fff87" "Green")
+BRIGHT_GREEN=(83 "BRIGHT_GREEN" "#5fff5f" "Green")
+SCREAMIN_GREEN=(84 "SCREAMIN_GREEN" "#5fff87" "Green")
 MEDIUM_AQUAMARINE=(85 "MEDIUM_AQUAMARINE" "#5fffaf" "Blue")
 AQUAMARINE=(86 "AQUAMARINE" "#5fffd7" "Blue")
 BABY_BLUE=(87 "BABY_BLUE" "#5fffff" "Blue")
@@ -163,7 +163,7 @@ BERMUDA=(115 "BERMUDA" "#87d7af" "Green")
 RIPTIDE=(116 "RIPTIDE" "#87d7d7" "Green")
 DARK_COLUMBIA_BLUE=(117 "COLUMBIA_BLUE" "#87d7ff" "Blue")
 CHARTREUSE=(118 "CHARTREUSE" "#87ff00" "Green")
-BRIGHT_SCREAMIN_GREEN=(119 "Screamin' Green" "#87ff5f" "Green")
+BRIGHT_SCREAMIN_GREEN=(119 "BRIGHT_SCREAMIN_GREEN" "#87ff5f" "Green")
 DARK_MINT_GREEN=(120 "DARK_MINT_GREEN" "#87ff87" "Green")
 MEDIUM_MINT_GREEN=(121 "MEDIUM_MINT_GREEN" "#87ffaf" "Green")
 BRIGHT_AQUAMARINE=(122 "BRIGHT_AQUAMARINE" "#87ffd7" "Blue")
@@ -309,8 +309,12 @@ WHITE_100=(255 "WHITE_100" "#eeeeee" "White")
 # color formatting codes
 #-----------------------------------------------------------
 FORMATTING_ESCAPE_SEQUENCE="\e[m"
+FORMATTING_RESET_SEQUENCE="\e[0m"
+COLORIZE_BACKGROUND_CODE="48;5;"
+COLORIZE_FOREGROUND_CODE="38;5;"
 OPEN_ESCAPE_SEQUENCE="\e["
 CLOSE_ESCAPE_SEQUENCE="m"
+
 CODE_SEPARATOR=";"
 RESET_ALL_FORMATTING_AND_COLORIZATION="0"
 TEXT_FORMAT_BOLD="1"
@@ -417,78 +421,6 @@ escapeBraces()
 	printf "%s" "$string"
 }
 
-insertFormattingCode()
-{
-	local string="${1}"
-	local tag="<t>"
-	local formattingCodeString="${2}"
-	local formatting=""
-	local backgroundColorization=""
-	local textColorization=""
-	local formatted="[124578]{0,1}"
-	local backgroundColorized="48;5;[0-9]{1,3}"
-	local textColorized="38;5;[0-9]{1,3}"
-	#local formatCapture="\(^[\\]e\[${formatted}[;|m]\)\(${backgroundColorized}[;|m]\)\(${textColorized}m\)"
-	local formatCapture="\(^[\\]e\[${formatted}[;|m]\)"
-	local textCapture="\(${textColorized}m\)"
-	local backgroundCapture="\(${backgroundColorized}[;|m]\)"
-	local sedPosition=(1 2 3)
-
-	#
-	if [[ "${string}" =~ $formatted ]]; then
-		formatting="\\${sedPosition[0]}"
-		unset array[0]
-		sedPosition=("${sedPosition[@]}")
-		echo "formatted!"
-	fi
-
-	#
-	if [[ "${string}" =~ $backgroundColorized ]]; then
-		backgroundColorization="\\${sedPosition[0]}"
-		unset array[0]
-		sedPosition=("${sedPosition[@]}")
-		echo "background colorized!"
-	fi
-
-	#
-	if [[ "${string}" =~ $textColorized ]]; then	
-		textColorization="\\${sedPosition[0]}"
-		unset array[0]
-		sedPosition=("${sedPosition[@]}")
-		echo "text colorized!"
-	fi
-
-	#
-	backgroundCapture=$(escapeBraces ${backgroundCapture})
-	textCapture=$(escapeBraces ${textCapture})
-	formatCapture=$(escapeBraces ${formatCapture})
-	splitFormatting="${formatCapture}${backgroundCapture}${textCapture}"
-
-	#
-	if [[ "${formattingCodeString}" =~ $backgroundColorized ]]; then
-		echo "1"
-		string=$( \
-		echo "${string}" | \
-		sed "s/${formatCapture}/${formatting}${tag}${textColorization}/g" \
-	)
-	elif [[ "${formattingCodeString}" =~ $textColorized ]]; then
-		echo "2"
-		string=$( \
-		echo "${string}" | \
-		sed "s/${formatCapture}/${formatting}${backgroundColorization}${tag}/g" \
-	)
-	elif [[ "${formattingCodeString}" =~ $formatted ]]; then
-		echo "3"
-		string=$( \
-		echo "${string}" | \
-		sed "s/${formatCapture}/${formatting}${tag}${backgroundColorization}${textColorization}/g" \
-	)
-	fi
-
-	#
-	printf "%s\n\n" ${string//$tag/$formattingCodeString}
-}
-
 openEscapeSequence()
 {
 	local string="${1}"
@@ -502,6 +434,40 @@ openEscapeSequence()
 		#hasn't been escaped, so add the code
 		printf "%s" "${FORMATTING_ESCAPE_SEQUENCE}${string}"
 	fi
+}
+
+closeEscapeSequence()
+{
+	local string="${1}"
+
+	printf "%s" "${string}"
+}
+
+extractFormattingCodes()
+{
+	local codes="${1}"
+	local extractionRegex="^[\\]e\([124578]{0,1}[;]{0,1}\)\(48;5;[0-9]{1,3}\)\(38;5;[0-9]{1,3}\)m"
+	local extractionRegex=".*\\e\[\([124578;]*\){0,1}\(48;5;[0-9]{1,3}\){0,1}m.*"
+	extractionRegex=$(escapeBraces "${extractionRegex}")
+
+	codes=$( \
+		echo "${codes}" | \
+		sed "s/${extractionRegex}/\1\2/" \
+	)
+	printf "%s" "${codes}"
+}
+
+insertFormattingCode()
+{
+	local string="${1}"
+	local tag="<t>"
+	local formattingCodeString="${2}"
+
+
+	
+
+
+	printf "%s\n\n" ${string//$tag/$formattingCodeString}
 }
 
 #───────────────────────────────────────────────────────────────────────────────
@@ -544,6 +510,25 @@ testOpenEscapeSequence()
 	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to detect perviously escaped string." \
 		"\\e[1;2;4;5;7;8;48;5;22;38;5;44m${originalString}" \
 		"${returnedString}"
+}
+
+testExtractFormattingCodes()
+{
+	local formatting="2"
+	local background="${COLOR_BACKGROUND_CODE}20"
+	local foreground="${COLORIZE_FOREGROUND_CODE}137"
+	local openSequence="${OPEN_ESCAPE_SEQUENCE}"
+	local closeSequence="${CLOSE_ESCAPE_SEQUENCE}"
+	local testSequence=
+	local extractedCode=
+
+	#formatting code test
+	testSequence="${openSequence}${formatting}${closeSequence}super cali fragi listic expi ali docious"
+	extractedCode=$(extractFormattingCodes "${testSequence}")
+	assertSame "(${BASH_SOURCE}:${LINENO}) Failed to extract formatting code." \
+		"${formatting}" \
+		"${extractedCode}"
+
 }
 
 oneTimeSetUp()
