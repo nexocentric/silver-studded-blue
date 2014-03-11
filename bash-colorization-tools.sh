@@ -648,28 +648,21 @@ insertFormattingCode()
 	local string="${1}"
 	local newFormattingCode="${2}"
 	local oldFormattingCode=$(extractFormattingCodes "${string}")
-	local formattingRegex="\(^[124578;]*\){0,1}"
-	local backgroundRegex="\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}"
-	local foregroundRegex="\(38;5;[0-9]{1,3}\){0,1}"
-	local regexList=($formattingRegex $backgroundRegex $foregroundRegex)
 	local codeIndex=0
 	local codeList=
-	local regexCount=
-	local testRegex=
-	local match=
-	local newCode=
-	local codePart=
+	local code=
 
 	#extract string
-	#string=$(extractString "${string}")
+	string=$(extractString "${string}")
 
 	IFS=';' read -ra codes <<< "$oldFormattingCode"
 	for code in ${codes[@]}; do
-		if [[ $code == 48 ]]; then
-		#	printf "HERE\n"
+		if [[ $code == 48 ]] && [[ -z "${codeList[1]}" ]]; then
+			printf "4once\n"
 			((codeIndex++))
 		fi
-		if [[ $code == 38 ]]; then
+		if [[ $code == 38 ]] && [[ -z "${codeList[2]}" ]]; then
+			printf "3once\n"
 			((codeIndex++))
 		fi
 		#printf "$code\n"
@@ -689,11 +682,11 @@ insertFormattingCode()
 	fi
 
 	newFormattingCode=
-	for i in ${codeList[@]}; do
+	for code in ${codeList[@]}; do
 		if [[ -n "${newFormattingCode}" ]]; then
-			newFormattingCode="${newFormattingCode};${i}"
+			newFormattingCode="${newFormattingCode};${code}"
 		else
-			newFormattingCode="${i}"
+			newFormattingCode="${code}"
 		fi
 	done
 
