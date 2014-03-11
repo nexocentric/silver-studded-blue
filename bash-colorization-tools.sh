@@ -19,11 +19,180 @@ SCRIPT_VERSION="0.01"
 SCRIPT_VERSION_NAME="azuki"
 SCRIPT_OPTION_FLAGS="Dd:hTtVv"
 SCRIPT_DEBUG_MODE=0
-SCRIPT_SELF_TEST_MODE=1
+SCRIPT_SELF_TEST_MODE=0
 SCRIPT_FUNCTION_DEBUG_MODE=0
 SCRIPT_FUNCTION_TO_DEBUG=
 SCRIPT_VERBOSE_MODE=0
 SCRIPT_PATH="$BASH_SOURCE"
+
+#───────────────────────────────────────────────────────────────────────────────
+# Script Control Functions
+#───────────────────────────────────────────────────────────────────────────────
+
+#===========================================================
+# [author]
+# Dzakuma, Dodzidenu
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
+displayScriptHeader()
+{
+	local scriptName="${SCRIPT_NAME}"
+
+	cat << SCRIPT_HEADER
+	$scriptName
+SCRIPT_HEADER
+}
+
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
+displayVerboseInformation()
+{
+	#safety check
+	if [[ $# -lt 1 ]]; then
+		return
+	fi
+
+	#verbose flag checks
+	if [[ $# -lt 2 ]] && [[ $SCRIPT_VERBOSE_MODE -eq 0 ]]; then
+		return
+	fi
+
+	printf "%s\n" "$*" >&2
+}
+
+#===========================================================
+# [author]
+# Dodzi Y. Dzakuma
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
+displayScriptUsage()
+{
+	cat << SCRIPT_USAGE
+NAME
+	$SCRIPT_NAME - include file for use to quickly build bash scripts
+
+USAGE
+	. [$SCRIPT_PATH]
+	source [$SCRIPT_PATH]
+
+DESCRIPTION
+	This is an include file for use in bash shell scripts. This script is sourced into a script after which the functions contained in this can be used freely.
+
+	Information about this script can be obtained by running the script with the following flags:
+
+	-D	run a script wide debug on all functions available for export in this script
+
+	-d ["FUNCTION_NAME"]	run specified function for debug
+
+	-h	display this information
+
+	-T | -t	run all test suites on this script to ensure that it is safe for use in your environment
+
+	-V	display version information
+
+	-v	display verbose information when running script tests
+
+FUNCTION LIST
+	$SCRIPT_NAME contains the following functions:
+
+	stringToArray
+	assertInterger
+	repeatString
+	reverseString
+	replaceString
+
+	For more information on the usage of each function please run:
+	. [$SCRIPT_PATH] -d "FUNCTION_NAME -h"
+
+AUTHOR
+	Written by Dodzi Y. Dzakuma.
+
+REPORTING BUGS
+	Report $SCRIPT_NAME on the GitHub page of this script.
+
+COPYRIGHT
+	The MIT License (MIT)
+	Copyright (c) 2013 Dodzi Y. Dzakuma (http://www.nexocentric.com)
+
+SCRIPT_USAGE
+}
+
+#===========================================================
+# [author]
+# Dzakuma, Dodzidenu
+# [summary]
+# [parameters]
+# [return]
+#===========================================================
+cleanUp()
+{
+	#declarations
+	terminationFlag=$1
+
+	#check to see if script was terminated prematurely
+	if [[ -n "${terminationFlag}" ]]; then
+		printf "%s terminated.\n" "${SCRIPT_NAME}"
+		return 1
+	fi
+
+	#successful completion
+	printf "%s successfully completed operation.\n" "${SCRIPT_NAME}"
+}
+
+#───────────────────────────────────────────────────────────────────────────────
+# Script Options Parsing
+#───────────────────────────────────────────────────────────────────────────────
+while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
+	case "${scriptOption}" in
+		#debug
+		D )
+			SCRIPT_DEBUG_MODE=1
+		;;
+		#debug function
+		d )
+			SCRIPT_FUNCTION_DEBUG_MODE=1
+			SCRIPT_FUNCTION_TO_DEBUG="${OPTARG}"
+		;;
+		# turn on self testing
+		T | t )
+			SCRIPT_SELF_TEST_MODE=1
+		;;
+		# display the script usage menu on help or invalid argments
+		h )
+			displayScriptHeader
+			displayScriptUsage
+			exit 0
+		;;
+		#version information
+		V )
+			cat << VERSION_INFORMATION
+${SCRIPT_NAME} ${SCRIPT_VERSION}
+The MIT License (MIT)
+Copyright (c) 2013 Dodzi Y. Dzakuma (http://www.nexocentric.com)
+
+Thank you for taking the time to look through and/or use this script.
+Your support is greatly appreciated.
+VERSION_INFORMATION
+			exit 0
+		;;
+		# verbose mode
+		v )
+			SCRIPT_VERBOSE_MODE=1
+		;;
+	esac
+done
+
+#remove parsed options from the list
+shift $((OPTIND-1))
 
 #───────────────────────────────────────────────────────────────────────────────
 # Script Constants
@@ -327,6 +496,9 @@ TEXT_FORMAT_HIDDEN="8"
 COLOR_TEXT_CODE=38
 COLOR_BACKGROUND_CODE=48
 
+#───────────────────────────────────────────────────────────────────────────────
+# Script Functions
+#───────────────────────────────────────────────────────────────────────────────
 #if starts with \e add code, but check to see if code already exists
 #replace if exists otherwise add
 #if doesn'T start with \e code then you should wrap in coe
@@ -476,25 +648,59 @@ insertFormattingCode()
 	local string="${1}"
 	local newFormattingCode="${2}"
 	local oldFormattingCode=$(extractFormattingCodes "${string}")
-	local formattingRegex="\([124578;]*\){0,1}"
+	local formattingRegex="\(^[124578;]*\){0,1}"
 	local backgroundRegex="\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}"
 	local foregroundRegex="\(38;5;[0-9]{1,3}\){0,1}"
 	local regexList=($formattingRegex $backgroundRegex $foregroundRegex)
+	local codeIndex=0
+	local codeList=
 	local regexCount=
 	local testRegex=
 	local match=
 	local newCode=
+	local codePart=
 
-	string=$(extractString "${string}")
+	#extract string
+	#string=$(extractString "${string}")
 
-	regexCount=$regexList[@]
-	for (( regex = 0; regex < regexCount; regex++ )); do
-		testRegex="${regexList[$regex]}"
-		match=$(echo "${newFormattingCode}" | sed "s/${testRegex}/\1/")
-		newCode="${newCode}${regexList[$regex]};"
+	IFS=';' read -ra codes <<< "$oldFormattingCode"
+	for code in ${codes[@]}; do
+		if [[ $code == 48 ]]; then
+		#	printf "HERE\n"
+			((codeIndex++))
+		fi
+		if [[ $code == 38 ]]; then
+			((codeIndex++))
+		fi
+		#printf "$code\n"
+		if [[ -n "${codeList[$codeIndex]}" ]]; then
+			codeList[$codeIndex]="${codeList[$codeIndex]};${code}"
+		else
+			codeList[$codeIndex]="${code}"
+		fi
 	done
 
-	printf "%s\n\n" ${string//$tag/$formattingCodeString}
+	if [[ "${newFormattingCode}" =~ ^48 ]]; then
+		codeList[1]="${newFormattingCode}"
+	elif [[ "${newFormattingCode}" =~ ^38 ]]; then
+		codeList[2]="${newFormattingCode}"
+	else
+		codeList[0]="${newFormattingCode}"
+	fi
+
+	newFormattingCode=
+	for i in ${codeList[@]}; do
+		if [[ -n "${newFormattingCode}" ]]; then
+			newFormattingCode="${newFormattingCode};${i}"
+		else
+			newFormattingCode="${i}"
+		fi
+	done
+
+	#printf "${newFormattingCode}\n"
+
+	printf "${OPEN_ESCAPE_SEQUENCE}${newFormattingCode}${CLOSE_ESCAPE_SEQUENCE}this works"
+	#printf "%s\n\n" ${string//$tag/$formattingCodeString}
 }
 
 #───────────────────────────────────────────────────────────────────────────────
@@ -609,4 +815,18 @@ else
 	. shunit2-2.0.3/src/shell/shunit2
 fi
 
+fi
+
+#───────────────────────────────────────────────────────────────────────────────
+# Script Debugging
+#───────────────────────────────────────────────────────────────────────────────
+if [[ $SCRIPT_FUNCTION_DEBUG_MODE -eq 1 ]]; then
+	printf "Running single function to debug.\n${SCRIPT_FUNCTION_TO_DEBUG}\n"
+	eval $SCRIPT_FUNCTION_TO_DEBUG
+	exit 0
+fi
+
+if [[ $SCRIPT_DEBUG_MODE -eq 1 ]]; then
+	printf "Running script for full debug.\n"
+	exit 0
 fi

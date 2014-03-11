@@ -1158,7 +1158,7 @@ fi
 # Script Debugging
 #───────────────────────────────────────────────────────────────────────────────
 if [[ $SCRIPT_FUNCTION_DEBUG_MODE -eq 1 ]]; then
-	printf "Running single function to debug.\n${$SCRIPT_FUNCTION_TO_DEBUG}\n"
+	printf "Running single function to debug.\n${SCRIPT_FUNCTION_TO_DEBUG}\n"
 	eval $SCRIPT_FUNCTION_TO_DEBUG
 	exit 0
 fi
