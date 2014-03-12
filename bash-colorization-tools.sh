@@ -31,7 +31,7 @@ SCRIPT_PATH="$BASH_SOURCE"
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
@@ -128,7 +128,7 @@ SCRIPT_USAGE
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
@@ -177,7 +177,7 @@ while getopts $SCRIPT_OPTION_FLAGS scriptOption; do
 			cat << VERSION_INFORMATION
 ${SCRIPT_NAME} ${SCRIPT_VERSION}
 The MIT License (MIT)
-Copyright (c) 2013 Dodzi Y. Dzakuma (http://www.nexocentric.com)
+Copyright (c) 2014 Dodzi Y. Dzakuma (http://www.nexocentric.com)
 
 Thank you for taking the time to look through and/or use this script.
 Your support is greatly appreciated.
@@ -488,9 +488,11 @@ export COLORIZE_BACKGROUND_CODE="48;5;"
 export COLORIZE_FOREGROUND_CODE="38;5;"
 export OPEN_ESCAPE_SEQUENCE="\e["
 export CLOSE_ESCAPE_SEQUENCE="m"
-
 export CODE_SEPARATOR=";"
-export RESET_ALL_FORMATTING_AND_COLORIZATION="0"
+
+#-----------------------------------------------------------
+# text formatting codes
+#-----------------------------------------------------------
 export TEXT_FORMAT_BOLD="1"
 export TEXT_FORMAT_DIM="2"
 export TEXT_FORMAT_UNDERLINED="4"
@@ -498,116 +500,204 @@ export TEXT_FORMAT_BLINK="5"
 export TEXT_FORMAT_INVERT="7"
 export TEXT_FORMAT_HIDDEN="8"
 
-export COLOR_TEXT_CODE=38
-export COLOR_BACKGROUND_CODE=48
-
-
 #───────────────────────────────────────────────────────────────────────────────
 # Script Functions
 #───────────────────────────────────────────────────────────────────────────────
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
+# Retrieves the name of the color from the colordex by it's
+# index.
 # [parameters]
+# 1) a string representing the color name accceptable
+#    formats listed below:
+#    [red system]
+#    [RED_SYSTEM]
+#    [red_system]
+#    [red-system]
 # [return]
+# 1) a number representing the shell code for the
+#    color name
 #===========================================================
 colorName()
 {
+	#---------------------------------------
+	# initializations
+	#---------------------------------------
 	local colorName=$1
 	colorName="${COLORDEX[$colorName]}"
 	
+	#---------------------------------------
+	# print the color name
+	#---------------------------------------
 	printf "%s" "${colorName}"
 }
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
+# Retrieves the hue of the color.
 # [parameters]
+# 1) a string representing the color name accceptable
+#    formats listed below:
+#    [red system]
+#    [RED_SYSTEM]
+#    [red_system]
+#    [red-system]
 # [return]
+# 1) the hue of the color
 #===========================================================
 colorHue()
 {
+	#---------------------------------------
+	# initializations
+	#---------------------------------------
 	local colorName="${1}"
 	local hue=
 
+	#---------------------------------------
+	# get hue name and print it
+	#---------------------------------------
 	eval hue=\${${colorName}[$COLOR_HUE]}
 	printf "${hue}"
 }
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
+# Retrieves the hex code of the color.
 # [parameters]
+# 1) a string representing the color name accceptable
+#    formats listed below:
+#    [red system]
+#    [RED_SYSTEM]
+#    [red_system]
+#    [red-system]
 # [return]
+# 1) the hue of the color
 #===========================================================
 colorHexCode()
 {
+	#---------------------------------------
+	# initializations
+	#---------------------------------------
 	local colorName="${1}"
 	local hexCode=
 
+	#---------------------------------------
+	# get the hex code and print it
+	#---------------------------------------
 	eval hexCode=\${${colorName}[$COLOR_HEX_CODE]}
 	printf "${hexCode}"
 }
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
+# Calculates the RGB values for a color prints them for
+# later use.
 # [parameters]
+# 1) a string representing the color name accceptable
+#    formats listed below:
+#    [red system]
+#    [RED_SYSTEM]
+#    [red_system]
+#    [red-system]
 # [return]
+# 1) the RGB values format example below:
+#    255 255 255
 #===========================================================
 rgbValues()
 {
+	#---------------------------------------
+	# initializations
+	#---------------------------------------
 	local hexValue="${1}"
 	local red=
 	local green=
 	local blue=
 
+	#---------------------------------------
+	# get the hex code for the color 
+	# in question
+	#---------------------------------------
 	eval hexValue=\${${hexValue}[$COLOR_HEX_CODE]}
 
+	#---------------------------------------
+	# safety check for the hex code found
+	#---------------------------------------
 	if [[ ! "$hexValue" =~ [A-Fa-f0-9]{6} ]]; then
 		return
 	fi
 
+	#---------------------------------------
+	# remove the leading sharp from the
+	# code if included
+	#---------------------------------------
 	hexValue="${hexValue/##/}"
+
+	#---------------------------------------
+	# convert each hex set to RGB
+	#---------------------------------------
 	red=$(printf "%d" "0x${hexValue:0:2}")
 	green=$(printf "%d" "0x${hexValue:2:2}")
 	blue=$(printf "%d" "0x${hexValue:4:2}")
 
+	#---------------------------------------
+	# print out the RGB codes
+	#---------------------------------------
 	printf "%s %s %s" "${red}" "${green}" "${blue}"
 }
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
 #===========================================================
 escapeBraces()
 {
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	local string="${1}"
+
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	string=${string//\{/\\\{}
 	string=${string//\}/\\\}}
+
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	printf "%s" "$string"
 }
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
 #===========================================================
 openEscapeSequence()
 {
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	local string="${1}"
 	local escapeSequenceRegex="^[\\]e\[[0-9\;]*m"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#check to make sure that the string isn't already escaped
 	if [[ "${string}" =~ $escapeSequenceRegex ]]; then
 		#keep it D.R.Y.
@@ -620,32 +710,47 @@ openEscapeSequence()
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
 #===========================================================
 closeEscapeSequence()
 {
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	local string="${1}"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	printf "%s" "${string}"
 }
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
 #===========================================================
 extractFormattingCodes()
 {
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	local codes="${1}"
 	local extractionRegex="^[\\]e\[\([124578;]*\){0,1}\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}\(38;5;[0-9]{1,3}\){0,1}m.*"
+
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	extractionRegex=$(escapeBraces "${extractionRegex}")
 
-	#remove only the codes
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	codes=$( \
 		echo "${codes}" | \
 		sed "s/${extractionRegex}/\1\2\3/" \
@@ -655,18 +760,27 @@ extractFormattingCodes()
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
 #===========================================================
 extractString()
 {
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	local string="${1}"
 	local extractionRegex="^[\\]e\[\([124578;]*\){0,1}\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}\(38;5;[0-9]{1,3}\){0,1}m\(.*\)"
+
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	extractionRegex=$(escapeBraces "${extractionRegex}")
 
-	#remove only the string
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	string=$( \
 		echo "${string}" | \
 		sed "s/${extractionRegex}/\4/" \
@@ -676,13 +790,16 @@ extractString()
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
 #===========================================================
 insertFormattingCode()
 {
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	local string=$(openEscapeSequence "${1}") #if you don't have this everything breaks!
 	local newFormattingCode="${2}"
 	local oldFormattingCode=$(extractFormattingCodes "${string}")
@@ -690,9 +807,15 @@ insertFormattingCode()
 	local codeList=
 	local code=
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#extract string
 	string=$(extractString "${string}")
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	IFS=';' read -ra codes <<< "$oldFormattingCode"
 	for code in ${codes[@]}; do
 		if [[ $code == 48 ]] && [[ -z "${codeList[1]}" ]]; then
@@ -709,6 +832,9 @@ insertFormattingCode()
 		fi
 	done
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	if [[ "${newFormattingCode}" =~ ^48 ]]; then
 		codeList[1]="${newFormattingCode}"
 	elif [[ "${newFormattingCode}" =~ ^38 ]]; then
@@ -717,6 +843,9 @@ insertFormattingCode()
 		codeList[0]="${newFormattingCode}"
 	fi
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	newFormattingCode=
 	for code in ${codeList[@]}; do
 		if [[ -n "${newFormattingCode}" ]]; then
@@ -726,22 +855,31 @@ insertFormattingCode()
 		fi
 	done
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	printf "${OPEN_ESCAPE_SEQUENCE}${newFormattingCode}${CLOSE_ESCAPE_SEQUENCE}${string}"
 }
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
 #===========================================================
 formatText()
 {
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#declarations
 	local formattedString="$1"
 	local formattingCodes=
 	
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#parse list of formatting codes
 	for code in "$@"; do
 		if [[ "$code" = "$formattedString" ]]; then
@@ -757,43 +895,66 @@ formatText()
 		fi
 	done
 
-	#
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	formattedString=$(insertFormattingCode "${formattedString}" "${formattingCodes}")
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	printf "%s" $formattedString
 }
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
 #===========================================================
 colorizeText()
 {
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	local colorizedString="${1}"
 	local colorCode="${COLORIZE_FOREGROUND_CODE}${2}"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	colorizedString=$(insertFormattingCode "${colorizedString}" "${colorCode}")
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	printf "%s" $colorizedString
 }
 
 #===========================================================
 # [author]
-# Dzakuma, Dodzidenu
+# Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
 # [return]
 #===========================================================
 colorizeBackground()
 {
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	local colorizedString="${1}"
 	local colorCode="${COLORIZE_BACKGROUND_CODE}${2}"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	colorizedString=$(insertFormattingCode "${colorizedString}" "${colorCode}")
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	printf "%s" $colorizedString
 }
 
@@ -807,6 +968,9 @@ testOpenEscapeSequence()
 	local originalString="supercalifragilisticexpialidocious"
 	local returnedString=
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#test properly escapes string no escapes
 	returnedString=$(openEscapeSequence "${originalString}")
 	assertSame \
@@ -814,6 +978,9 @@ testOpenEscapeSequence()
 		"\\e[m${originalString}" \
 		"${returnedString}"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#test properly escapes string with escapes but none at beginning
 	returnedString=$(openEscapeSequence "${originalString}")
 	returnedString=$(openEscapeSequence "sing ${returnedString}")
@@ -822,6 +989,9 @@ testOpenEscapeSequence()
 		"\\e[msing \\e[m${originalString}" \
 		"${returnedString}"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#test doesn't escape previously escaped string
 	returnedString=$(openEscapeSequence "${originalString}")
 	returnedString=$(openEscapeSequence "${returnedString}")
@@ -829,6 +999,9 @@ testOpenEscapeSequence()
 		"\\e[m${originalString}" \
 		"${returnedString}"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#test doesn't escape previously escaped string
 	returnedString=$( \
 		openEscapeSequence \
@@ -850,6 +1023,9 @@ testExtractFormattingCodes()
 	local testSequence=
 	local extractedCode=
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#formatting code test
 	testSequence="${openSequence}${formatting}${closeSequence}super cali fragi listic expi ali docious"
 	extractedCode=$(extractFormattingCodes "${testSequence}")
@@ -857,6 +1033,9 @@ testExtractFormattingCodes()
 		"${formatting}" \
 		"${extractedCode}"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#background code test
 	testSequence="${openSequence}${background}${closeSequence}super cali fragi listic expi ali docious"
 	extractedCode=$(extractFormattingCodes "${testSequence}")
@@ -864,6 +1043,9 @@ testExtractFormattingCodes()
 		"${background}" \
 		"${extractedCode}"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#foreground code test
 	testSequence="${openSequence}${foreground}${closeSequence}super cali fragi listic expi ali docious"
 	extractedCode=$(extractFormattingCodes "${testSequence}")
@@ -871,6 +1053,9 @@ testExtractFormattingCodes()
 		"${foreground}" \
 		"${extractedCode}"
 	
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#formatting and foreground code test
 	testSequence="${openSequence}${formatting}${separator}${foreground}${closeSequence}super cali fragi listic expi ali docious"
 	extractedCode=$(extractFormattingCodes "${testSequence}")
@@ -878,6 +1063,9 @@ testExtractFormattingCodes()
 		"${formatting}${separator}${foreground}" \
 		"${extractedCode}"
 
+	#---------------------------------------
+	# text formatting codes
+	#---------------------------------------
 	#formatting and foreground code test
 	testSequence="${openSequence}${formatting}${separator}${background}${separator}${foreground}${closeSequence}super cali fragi listic expi ali docious"
 	extractedCode=$(extractFormattingCodes "${testSequence}")
