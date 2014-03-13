@@ -719,7 +719,7 @@ openEscapeSequence()
 	#---------------------------------------
 	# print the escaped string
 	#---------------------------------------
-	printf "%" "${string}"
+	printf "%s" "${string}"
 }
 
 #===========================================================
@@ -951,12 +951,12 @@ insertFormattingCode()
 # Changes the text format of the string passed.
 # [parameters]
 # 1) a string to format
-# 2) formatting codes to use 
+# 2) one or more formatting codes to use 
 #    (this will handle multiple formatting codes)
 #    formatText 'hello' $TEXT_FORMAT_BOLD $TEXT_FORMAT_DIM
 # [return]
-# 1) a formatted string if all codes are valid
-# 2) the original string if the codes are not valid
+# 1) a formatted string with only the valid codes
+#    (a check is performed and invalid codes are removed)
 #===========================================================
 formatText()
 {
@@ -980,9 +980,8 @@ formatText()
 
 		#this is a safety check to make sure
 		#that the formatting codes are all valid
-		if [[ ! "${code}" =~ [124578]{1} ]]; then
-			#not valid ABORT
-			printf "%s" $formattedString
+		if [[ ! "${code}" =~ ^[124578]{1} ]]; then
+			continue
 		fi
 		
 		#combine the codes for use
@@ -1011,7 +1010,11 @@ formatText()
 # [summary]
 # Changes the background color of the string passed.
 # [parameters]
+# 1) a string to format
+# 2) the color code to use 
 # [return]
+# 1) a formatted string if all codes are valid
+# 2) the original string if the codes are not valid
 #===========================================================
 colorizeText()
 {
@@ -1026,7 +1029,7 @@ colorizeText()
 	# the color code is valid, if it is not
 	# valid then we abort here
 	#---------------------------------------
-	if [[ $2 < 0 ]] || [[ 255 < $2 ]]; then
+	if [[ $2 -lt 0 || 255 -lt $2 ]]; then
 		#ABORT
 		printf "%s" $colorizedString
 	fi
@@ -1048,7 +1051,11 @@ colorizeText()
 # Dodzi Y. Dzakuma
 # [summary]
 # [parameters]
+# 1) a string to format
+# 2) the color code to use
 # [return]
+# 1) a formatted string if all codes are valid
+# 2) the original string if the codes are not valid
 #===========================================================
 colorizeBackground()
 {
@@ -1063,7 +1070,7 @@ colorizeBackground()
 	# the color code is valid, if it is not
 	# valid then we abort here
 	#---------------------------------------
-	if [[ $2 < 0 ]] || [[ 255 < $2 ]]; then
+	if [[ $2 -lt 0 || 255 -lt $2 ]]; then
 		#ABORT
 		printf "%s" $colorizedString
 	fi
