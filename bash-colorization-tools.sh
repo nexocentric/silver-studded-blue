@@ -508,7 +508,7 @@ export TEXT_FORMAT_HIDDEN="8"
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
-# Retrieves the name of the color from the colordex by it's
+# Retrieves the name of the color from the colordex by its
 # index.
 # [parameters]
 # 1) a string representing the color name accceptable
@@ -658,24 +658,28 @@ rgbValues()
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
+# Places a backslash before each [{] or [}]. This is used
+# internally to make sure that REGEXs are sed safe.
 # [parameters]
+# 1) a string to escape
 # [return]
+# 1) a string with the braces escaped
 #===========================================================
 escapeBraces()
 {
 	#---------------------------------------
-	# text formatting codes
+	# initializations
 	#---------------------------------------
 	local string="${1}"
 
 	#---------------------------------------
-	# text formatting codes
+	# escape the string
 	#---------------------------------------
-	string=${string//\{/\\\{}
-	string=${string//\}/\\\}}
+	string=${string//\{/\\\{} # { opening
+	string=${string//\}/\\\}} # } closing
 
 	#---------------------------------------
-	# text formatting codes
+	# print the sed safe string
 	#---------------------------------------
 	printf "%s" "$string"
 }
@@ -684,36 +688,51 @@ escapeBraces()
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
+# Checks to confirm that a string has a valid formatting
+# code at its start. This function is used internally for
+# color and text formatting.
 # [parameters]
+# 1) a string to confirm
 # [return]
+# 1) a string with a valid format code at its start
 #===========================================================
 openEscapeSequence()
 {
 	#---------------------------------------
-	# text formatting codes
+	# initializations
 	#---------------------------------------
 	local string="${1}"
 	local escapeSequenceRegex="^[\\]e\[[0-9\;]*m"
 
 	#---------------------------------------
-	# text formatting codes
+	# check to make sure the the string
+	# isn't already escaped
 	#---------------------------------------
-	#check to make sure that the string isn't already escaped
 	if [[ "${string}" =~ $escapeSequenceRegex ]]; then
-		#keep it D.R.Y.
-		printf "%s" "${string}"
+		#it already has an escape sequence
+		string="${string}"
 	else
 		#hasn't been escaped, so add the code
-		printf "%s" "${FORMATTING_ESCAPE_SEQUENCE}${string}"
+		string="${FORMATTING_ESCAPE_SEQUENCE}${string}"
 	fi
+
+	#---------------------------------------
+	# print the escaped string
+	#---------------------------------------
+	printf "%" "${string}"
 }
 
 #===========================================================
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
+# Adds a reset code to the end of an escape sequence. This
+# is for use on an string where the escape sequences should
+# be reset.
 # [parameters]
+# 1) a string to reset sequences
 # [return]
+# 1) a string with a valid reset at the end
 #===========================================================
 closeEscapeSequence()
 {
@@ -721,9 +740,22 @@ closeEscapeSequence()
 	# text formatting codes
 	#---------------------------------------
 	local string="${1}"
+	local escapeSequenceRegex="[\\]e\[0m$"
 
 	#---------------------------------------
-	# text formatting codes
+	# check to make sure the the string
+	# isn't already escaped
+	#---------------------------------------
+	if [[ "${string}" =~ $escapeSequenceRegex ]]; then
+		#it already has an escape sequence
+		string="${string}"
+	else
+		#hasn't been escaped, so add the code
+		string="${string}${FORMATTING_RESET_SEQUENCE}"
+	fi
+
+	#---------------------------------------
+	# print the escaped string
 	#---------------------------------------
 	printf "%s" "${string}"
 }
@@ -732,29 +764,38 @@ closeEscapeSequence()
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
+# Removes only the formatting codes from the head of a 
+# string. This string is used internally.
 # [parameters]
+# 1) a string escaped with formatting codes.
 # [return]
+# 1) the numeric formatting codes delimited by semicolons
 #===========================================================
 extractFormattingCodes()
 {
 	#---------------------------------------
-	# text formatting codes
+	# initializations
 	#---------------------------------------
 	local codes="${1}"
 	local extractionRegex="^[\\]e\[\([124578;]*\){0,1}\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}\(38;5;[0-9]{1,3}\){0,1}m.*"
 
 	#---------------------------------------
-	# text formatting codes
+	# format the regex pattern for use with
+	# sed
 	#---------------------------------------
 	extractionRegex=$(escapeBraces "${extractionRegex}")
 
 	#---------------------------------------
-	# text formatting codes
+	# remove just the formatting codes
 	#---------------------------------------
 	codes=$( \
 		echo "${codes}" | \
 		sed "s/${extractionRegex}/\1\2\3/" \
 	)
+
+	#---------------------------------------
+	# print the codes
+	#---------------------------------------
 	printf "%s" "${codes}"
 }
 
@@ -762,29 +803,37 @@ extractFormattingCodes()
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
+# Removes the string part from its escape string.
 # [parameters]
+# 1) a string with an escape code
 # [return]
+# 1) a string with no escape code
 #===========================================================
 extractString()
 {
 	#---------------------------------------
-	# text formatting codes
+	# initalizations
 	#---------------------------------------
 	local string="${1}"
 	local extractionRegex="^[\\]e\[\([124578;]*\){0,1}\(48;5;[0-9]{1,3}[;]{0,1}\){0,1}\(38;5;[0-9]{1,3}\){0,1}m\(.*\)"
 
 	#---------------------------------------
-	# text formatting codes
+	# format the regex pattern for use with
+	# sed
 	#---------------------------------------
 	extractionRegex=$(escapeBraces "${extractionRegex}")
 
 	#---------------------------------------
-	# text formatting codes
+	# remove just the formatting codes
 	#---------------------------------------
 	string=$( \
 		echo "${string}" | \
 		sed "s/${extractionRegex}/\4/" \
 	)
+
+	#---------------------------------------
+	# print the codes
+	#---------------------------------------
 	printf "%s" "${string}"
 }
 
@@ -792,71 +841,105 @@ extractString()
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
+# Combines the formatting codes and concatenates them with
+# a string after properly creating an escape sequence. This
+# function in used internally.
 # [parameters]
+# 1) the string to format
+# 2) the new formatting codes
 # [return]
+# 1) a formatted string
 #===========================================================
 insertFormattingCode()
 {
 	#---------------------------------------
-	# text formatting codes
+	# initializations
 	#---------------------------------------
-	local string=$(openEscapeSequence "${1}") #if you don't have this everything breaks!
+	local string=$(openEscapeSequence "${1}") #process breaks without this
 	local newFormattingCode="${2}"
-	local oldFormattingCode=$(extractFormattingCodes "${string}")
+	#get the old codes because we'll only be replacing one of them
+	local oldFormattingCode=$(extractFormattingCodes "${string}") 
 	local codeIndex=0
 	local codeList=
 	local code=
 
 	#---------------------------------------
-	# text formatting codes
+	# remove the string part
 	#---------------------------------------
-	#extract string
 	string=$(extractString "${string}")
 
 	#---------------------------------------
-	# text formatting codes
+	# this breaks down all of the formatting
+	# codes and puts them into an array
+	# we want them in order and grouped by:
+	# 1) formatting
+	# 2) background
+	# 3) foreground (text color)
+	# so we loop through all of them and
+	# combine them in groups
+	# one of these 3 groups will be replaced
+	# at the end of this function
 	#---------------------------------------
 	IFS=';' read -ra codes <<< "$oldFormattingCode"
 	for code in ${codes[@]}; do
+		#this is the start of the background sequence
 		if [[ $code == 48 ]] && [[ -z "${codeList[1]}" ]]; then
+			#increase the array index so everything is
+			#grouped properly
 			((codeIndex++))
 		fi
+		#this is the start of the foreground sequence
 		if [[ $code == 38 ]] && [[ -z "${codeList[2]}" ]]; then
+			#increase the array index so everything is
+			#grouped properly
 			((codeIndex++))
 		fi
 		#printf "$code\n"
+
+		#make sure that each of the codes in a group
+		#are properly separated by semicolons
 		if [[ -n "${codeList[$codeIndex]}" ]]; then
+			#keep joining codes
 			codeList[$codeIndex]="${codeList[$codeIndex]};${code}"
 		else
+			#this is the first code in the sequence
 			codeList[$codeIndex]="${code}"
 		fi
 	done
 
 	#---------------------------------------
-	# text formatting codes
+	# determine which index is to be
+	# replaced if it exists
 	#---------------------------------------
 	if [[ "${newFormattingCode}" =~ ^48 ]]; then
+		#background
 		codeList[1]="${newFormattingCode}"
 	elif [[ "${newFormattingCode}" =~ ^38 ]]; then
+		#foreground
 		codeList[2]="${newFormattingCode}"
 	else
+		#text formatting
 		codeList[0]="${newFormattingCode}"
 	fi
 
 	#---------------------------------------
-	# text formatting codes
+	# join the codes together
 	#---------------------------------------
 	newFormattingCode=
 	for code in ${codeList[@]}; do
+		#make sure that each of group is
+		#properly separated by semicolons
 		if [[ -n "${newFormattingCode}" ]]; then
+			#keep joining groups
 			newFormattingCode="${newFormattingCode};${code}"
 		else
+			#first group
 			newFormattingCode="${code}"
 		fi
 	done
 
 	#---------------------------------------
-	# text formatting codes
+	# print the formatted text
 	#---------------------------------------
 	printf "${OPEN_ESCAPE_SEQUENCE}${newFormattingCode}${CLOSE_ESCAPE_SEQUENCE}${string}"
 }
@@ -865,29 +948,44 @@ insertFormattingCode()
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
+# Changes the text format of the string passed.
 # [parameters]
+# 1) a string to format
+# 2) formatting codes to use 
+#    (this will handle multiple formatting codes)
+#    formatText 'hello' $TEXT_FORMAT_BOLD $TEXT_FORMAT_DIM
 # [return]
+# 1) a formatted string if all codes are valid
+# 2) the original string if the codes are not valid
 #===========================================================
 formatText()
 {
 	#---------------------------------------
-	# text formatting codes
+	# initializations
 	#---------------------------------------
-	#declarations
 	local formattedString="$1"
 	local formattingCodes=
 	
 	#---------------------------------------
-	# text formatting codes
+	# this check to make sure all the codes
+	# passed to this function are valid and
+	# that they are all joined with
+	# semicolons
 	#---------------------------------------
-	#parse list of formatting codes
 	for code in "$@"; do
 		if [[ "$code" = "$formattedString" ]]; then
 			#this is the string we want to format, so we don't need it
 			continue
 		fi
+
+		#this is a safety check to make sure
+		#that the formatting codes are all valid
+		if [[ ! "${code}" =~ [124578]{1} ]]; then
+			#not valid ABORT
+			printf "%s" $formattedString
+		fi
 		
-		#
+		#combine the codes for use
 		if [[ -z $formattingCodes ]]; then
 			formattingCodes="${code}"
 		else
@@ -896,12 +994,13 @@ formatText()
 	done
 
 	#---------------------------------------
-	# text formatting codes
+	# escape the string with the formatting
+	# codes
 	#---------------------------------------
 	formattedString=$(insertFormattingCode "${formattedString}" "${formattingCodes}")
 
 	#---------------------------------------
-	# text formatting codes
+	# print the formatted string
 	#---------------------------------------
 	printf "%s" $formattedString
 }
@@ -910,24 +1009,36 @@ formatText()
 # [author]
 # Dodzi Y. Dzakuma
 # [summary]
+# Changes the background color of the string passed.
 # [parameters]
 # [return]
 #===========================================================
 colorizeText()
 {
 	#---------------------------------------
-	# text formatting codes
+	# initializations
 	#---------------------------------------
 	local colorizedString="${1}"
 	local colorCode="${COLORIZE_FOREGROUND_CODE}${2}"
 
 	#---------------------------------------
-	# text formatting codes
+	# saftey check to make sure that
+	# the color code is valid, if it is not
+	# valid then we abort here
+	#---------------------------------------
+	if [[ $2 < 0 ]] || [[ 255 < $2 ]]; then
+		#ABORT
+		printf "%s" $colorizedString
+	fi
+
+	#---------------------------------------
+	# escape the string with the formatting
+	# codes
 	#---------------------------------------
 	colorizedString=$(insertFormattingCode "${colorizedString}" "${colorCode}")
 
 	#---------------------------------------
-	# text formatting codes
+	# print the formatted string
 	#---------------------------------------
 	printf "%s" $colorizedString
 }
@@ -942,18 +1053,29 @@ colorizeText()
 colorizeBackground()
 {
 	#---------------------------------------
-	# text formatting codes
+	# initializations
 	#---------------------------------------
 	local colorizedString="${1}"
 	local colorCode="${COLORIZE_BACKGROUND_CODE}${2}"
 
 	#---------------------------------------
-	# text formatting codes
+	# saftey check to make sure that
+	# the color code is valid, if it is not
+	# valid then we abort here
+	#---------------------------------------
+	if [[ $2 < 0 ]] || [[ 255 < $2 ]]; then
+		#ABORT
+		printf "%s" $colorizedString
+	fi
+
+	#---------------------------------------
+	# escape the string with the formatting
+	# codes
 	#---------------------------------------
 	colorizedString=$(insertFormattingCode "${colorizedString}" "${colorCode}")
 
 	#---------------------------------------
-	# text formatting codes
+	# print the formatted string
 	#---------------------------------------
 	printf "%s" $colorizedString
 }
