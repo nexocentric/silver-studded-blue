@@ -483,7 +483,7 @@ export COLORDEX=("BLACK_SYSTEM" "RED_SYSTEM" "GREEN_SYSTEM" "YELLOW_SYSTEM" "BLU
 # color formatting codes
 #-----------------------------------------------------------
 export FORMATTING_ESCAPE_SEQUENCE="\e[m"
-export FORMATTING_RESET_SEQUENCE="\e[0m"
+export FORMATTING_RESET_SEQUENCE=$(tput sgr0)
 export COLORIZE_BACKGROUND_CODE="48;5;"
 export COLORIZE_FOREGROUND_CODE="38;5;"
 export OPEN_ESCAPE_SEQUENCE="\e["
@@ -740,7 +740,7 @@ closeEscapeSequence()
 	# text formatting codes
 	#---------------------------------------
 	local string="${1}"
-	local escapeSequenceRegex="[\\]e\[0m$"
+	local escapeSequenceRegex="${FORMATTING_RESET_SEQUENCE}$"
 
 	#---------------------------------------
 	# check to make sure the the string
